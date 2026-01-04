@@ -12,4 +12,15 @@ This whitepaper describes:
 
 BondX is designed as a **multi-chain launchpad from day 1**. Each supported chain runs its **own independent deployment and economics** (liquidity, fees, phases, and stats are **per-chain**).
 
+## Who this is for
+
+- **Investors/market**: understand BondX’s unit economics, incentives, and trust assumptions.
+- **Creators**: understand how token creation and growth mechanics work.
+- **Traders**: understand fees, points, tiers, and what is verifiable on-chain.
+
+## Supported chains (current)
+
+BondX currently supports **Ethereum**, **Arbitrum**, and **Base**. More chains may be added later.
+
+
 

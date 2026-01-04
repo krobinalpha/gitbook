@@ -22,4 +22,24 @@ When off-chain metrics are displayed, BondX should clearly label:
 - whether the metric is computed from on-chain reads or indexed events
 - the time window (if applicable)
 
+## Recommended metric definitions (for dashboards)
+
+To avoid confusion, dashboards should define metrics precisely:
+
+- **Total Platform Volume (ETH)**: `totalTradingVolume` on the selected chain.
+- **Treasury Fee (ETH)**: `accumulatedTreasuryFee` on the selected chain.
+- **LP Fee (ETH)**: `accumulatedLPFee` on the selected chain.
+- **Buyback Fee (ETH)**: `accumulatedBuybackFee` on the selected chain.
+- **User Tier**: derived from `userTradingVolume[user]` vs tier thresholds (per chain).
+- **Creator tokens created**: count of `creatorTokens[creator]` (per chain deployment).
+
+## Fast + correct rankings (best practice)
+
+Rankings should be:
+
+- **chain-specific**
+- computed from a consistent data source (on-chain reads and/or indexed events)
+- cached with clear refresh semantics (e.g., update every N minutes)
+
+
 

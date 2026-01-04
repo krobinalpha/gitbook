@@ -18,4 +18,14 @@ Each chain has its own independent BondX deployment. This means:
 
 BondX may present a unified UX, but **economics do not mix across chains**.
 
+## Practical implication for users
+
+When a user switches chain, all of the following are chain-specific:
+
+- platform volume and rankings
+- treasury/LP/buyback accumulators
+- whether Phase 2 is active
+- reward claiming availability (in the current contract design)
+
+
 

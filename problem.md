@@ -11,4 +11,13 @@ Common problems in early-stage token markets include:
 
 BondX is designed to provide a more transparent, rules-based launch and early trading environment.
 
+## What “better” means in practice
+
+BondX focuses on:
+
+- **Measurable economics**: users should be able to audit how fees and volume behave.
+- **Predictable phase transitions**: clear rules for when the system changes behavior (fees, LP, buyback).
+- **Aligned incentives**: reward actions that contribute to market formation (creation, buys, progress).
+
+
 

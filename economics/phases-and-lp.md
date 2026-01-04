@@ -11,6 +11,14 @@ From `BondX.sol`:
 - **LP listing threshold**: 10 ETH
 - **BondXCoin token amount for LP**: 2,500,000 tokens
 
+## How Phase 2 activates (current on-chain design)
+
+Phase 2 is activated on a chain when BondXCoin is listed on Uniswap on that chain. In the contract:
+
+- Phase 1 LP fees accumulate into `accumulatedLPFee`.
+- When `accumulatedLPFee >= LP_LISTING_THRESHOLD`, the owner can trigger listing.
+- Listing sets `bondXCoinListed = true` and `isPhase2Active = true`.
+
 ## What happens at listing
 When listing occurs:
 
@@ -24,5 +32,10 @@ Phases change:
 - fee rates
 - whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
 - points emission rates (Phase 2 reduces points constants)
+
+## User-facing interpretation
+
+- **Phase 1**: higher fees but higher rewards/points emissions (distribution phase).
+- **Phase 2**: lower fees and ongoing sustainability mechanics (buyback + LP operations).
 
 

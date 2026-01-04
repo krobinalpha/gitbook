@@ -17,6 +17,11 @@ Basis points (BPS) use a denominator of 10,000.
 - **Treasury fee**: 30 bps (0.3%)
 - **LP fee**: 50 bps (0.5%)
 
+## Fee totals (quick comparison)
+
+- **Phase 1 total**: 300 bps (3.0%)
+- **Phase 2 total**: 150 bps (1.5%)
+
 ## Where fees go (high level)
 
 - **Treasury fee** is sent to the treasury address and also tracked via an on-chain accumulator.
@@ -24,5 +29,8 @@ Basis points (BPS) use a denominator of 10,000.
 - **Buyback fee** is accumulated or executed depending on phase rules.
 
 See “Treasury, LP & Buyback Flows” for operational detail.
+
+## Important: per-chain accounting
+All fees and fee accumulators are **per chain**. A user trading on one chain does not affect fee accounting on other chains.
 
 

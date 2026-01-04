@@ -1,7 +1,7 @@
 # Token Lifecycle
 
 ## Create
-A creator calls the contract to create a new token. The token is registered and associated with the creator.
+A creator calls the contract to create a new token. The token is registered and associated with the creator. The system also tracks the creator’s token list for transparent counting and rankings.
 
 ## Trade (early market formation)
 Users buy and sell. Each trade:
