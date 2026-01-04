@@ -24,6 +24,15 @@ BondX tracks fee accumulation on-chain, per chain.
 * Phase 1: set to 0 bps (effectively no buyback fee).
 * Phase 2: buyback fee is enabled; it may execute immediately and/or accumulate based on minimum thresholds and execution outcomes.
 
+## Why this can support BONDX price and grow LP (without guarantees)
+
+In Phase 2, the protocol routes part of trading activity into:
+
+* **buyback + burn**: creates market buy pressure for BONDX and reduces circulating supply (burn), and
+* **liquidity adds**: increases BONDX liquidity depth over time (LP growth), which can reduce volatility and improve tradability.
+
+Important: none of this guarantees price appreciation. Market conditions, sell pressure, slippage, and execution failures can all impact outcomes. The professional claim is: **these mechanics can support price and liquidity over time**.
+
 ## “Accumulated” vs “executed”
 
 Investors should distinguish between:

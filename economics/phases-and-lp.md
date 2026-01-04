@@ -16,9 +16,18 @@ From `BondX.sol`:
 
 Phase 2 is activated on a chain when BondXCoin is listed on Uniswap on that chain. In the contract:
 
-- Phase 1 LP fees accumulate into `accumulatedLPFee`.
-- When `accumulatedLPFee >= LP_LISTING_THRESHOLD`, the owner can trigger listing.
-- Listing sets `bondXCoinListed = true` and `isPhase2Active = true`.
+* Phase 1 LP fees accumulate into `accumulatedLPFee`.
+* When `accumulatedLPFee >= LP_LISTING_THRESHOLD`, the owner can trigger listing via `listBondXCoinManually()`.
+* Listing sets `bondXCoinListed = true` and `isPhase2Active = true`.
+
+## “Automatic” listing (recommended upgrade)
+
+If BondX wants Phase 2 activation to be **automatic**, the contract can be wired so that once the threshold is reached, a keeper/automation job triggers listing.
+
+Important: this is an **operational choice**:
+
+* **Manual activation** is simpler and reduces automation risk, but requires an admin action.
+* **Automated activation** improves UX and consistency, but introduces keeper dependency and requires careful safeguards.
 
 ## What happens at listing
 
