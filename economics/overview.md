@@ -1,12 +1,10 @@
-# Economics
+# 💸 Economics
 
 BondX economics are defined primarily on-chain and operate independently per chain.
 
 This section explains:
 
-- fee model (Phase 1 and Phase 2)
-- LP listing conditions and phase transition
-- points and user tiers (volume thresholds and bonuses)
-- how treasury, LP, and buyback flows work
-
-
+* fee model (Phase 1 and Phase 2)
+* LP listing conditions and phase transition
+* points and user tiers (volume thresholds and bonuses)
+* how treasury, LP, and buyback flows work
