@@ -11,15 +11,10 @@ Key risks include:
 * regulatory and compliance uncertainty
 
 Users and investors should evaluate these risks independently.
-<<<<<<< HEAD
 
 ## Additional risks relevant to BondX design
 
-- **Incentive exploitation**: points systems can be gamed; mitigation must be continuously improved.
-- **Reward sustainability**: “1 point = 1 BONDX” requires careful emission and redemption policy to avoid excessive supply pressure.
-- **Phase transition governance**: Phase 2 activation and certain operations may be admin-triggered depending on deployment configuration.
-- **Multi-chain fragmentation**: liquidity and adoption can vary dramatically by chain, impacting token dynamics.
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
+* **Incentive exploitation**: points systems can be gamed; mitigation must be continuously improved.
+* **Reward sustainability**: “1 point = 1 BONDX” requires careful emission and redemption policy to avoid excessive supply pressure.
+* **Phase transition governance**: Phase 2 activation and certain operations may be admin-triggered depending on deployment configuration.
+* **Multi-chain fragmentation**: liquidity and adoption can vary dramatically by chain, impacting token dynamics.

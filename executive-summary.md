@@ -9,25 +9,20 @@ Key ideas:
 * **Incentives**: BondX awards points for key actions (create, buy activity, graduation progress), and grants tier bonuses based on cumulative trading volume.
 
 This document is aimed at investors/market audiences and focuses on the economic design and transparency of the system.
-<<<<<<< HEAD
 
 ## The “why now”
 
 Crypto users are fragmented across chains, and launch dynamics increasingly rely on measurable trust:
 
-- users want to verify fee flows and platform economics
-- creators want distribution and early liquidity clarity
-- investors want simple, auditable unit economics
+* users want to verify fee flows and platform economics
+* creators want distribution and early liquidity clarity
+* investors want simple, auditable unit economics
 
 BondX addresses this by keeping the most important metrics on-chain where possible and clearly separating economics per chain.
 
 ## What BondX optimizes for
 
-- **Clarity**: explicit fee schedules and phase transitions
-- **Transparency**: on-chain tracked volume and fee accumulation
-- **Incentives**: points, tiers, and progress rewards for meaningful participation
-- **Sustainability**: Phase 2 shifts behavior toward lower fees and buyback/LP operations
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
+* **Clarity**: explicit fee schedules and phase transitions
+* **Transparency**: on-chain tracked volume and fee accumulation
+* **Incentives**: points, tiers, and progress rewards for meaningful participation
+* **Sustainability**: Phase 2 shifts behavior toward lower fees and buyback/LP operations

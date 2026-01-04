@@ -20,25 +20,20 @@ BondX runs the same product experience across multiple chains, but each chain’
 * fees and metrics
 
 are **independent**.
-<<<<<<< HEAD
 
 ## Key on-chain tracked metrics (per chain)
 
-- **Total platform trading volume**: `totalTradingVolume`
-- **Per-user trading volume**: `userTradingVolume[user]`
-- **Per-user points**: `userPoints[user]`
-- **Fee accumulators**: `accumulatedTreasuryFee`, `accumulatedLPFee`, `accumulatedBuybackFee`
-- **Phase state**: `isPhase2Active`
+* **Total platform trading volume**: `totalTradingVolume`
+* **Per-user trading volume**: `userTradingVolume[user]`
+* **Per-user points**: `userPoints[user]`
+* **Fee accumulators**: `accumulatedTreasuryFee`, `accumulatedLPFee`, `accumulatedBuybackFee`
+* **Phase state**: `isPhase2Active`
 
 ## Fees (summary)
 
 BondX uses basis points (BPS). Fee schedules are phase-dependent:
 
-- **Phase 1 total fee**: 3.0% (0.5% treasury + 2.5% LP + 0% buyback)
-- **Phase 2 total fee**: 1.5% (0.3% treasury + 0.5% LP + 0.7% buyback)
+* **Phase 1 total fee**: 3.0% (0.5% treasury + 2.5% LP + 0% buyback)
+* **Phase 2 total fee**: 1.5% (0.3% treasury + 0.5% LP + 0.7% buyback)
 
 The intent is to allow Phase 1 to emphasize growth and distribution incentives, then shift Phase 2 toward lower fees and sustainable operations.
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67

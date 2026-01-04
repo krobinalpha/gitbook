@@ -15,17 +15,11 @@ At a high level:
 3. The contract tracks accumulated fees on-chain.
 4. A phase transition can occur once LP listing conditions are met.
 5. Users earn points and tier bonuses based on rules defined in the contract.
-<<<<<<< HEAD
 
 ## “Source of truth”
 
 For any chain, the primary source of truth is the BondX contract on that chain. Off-chain analytics can improve UX, but should remain consistent with:
 
-- on-chain accumulators (fees)
-- on-chain volume (per user and total)
-- on-chain points and claimable rewards
-
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
+* on-chain accumulators (fees)
+* on-chain volume (per user and total)
+* on-chain points and claimable rewards

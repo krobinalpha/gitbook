@@ -18,18 +18,12 @@ Each chain has its own independent BondX deployment. This means:
 * liquidity state is per-chain
 
 BondX may present a unified UX, but **economics do not mix across chains**.
-<<<<<<< HEAD
 
 ## Practical implication for users
 
 When a user switches chain, all of the following are chain-specific:
 
-- platform volume and rankings
-- treasury/LP/buyback accumulators
-- whether Phase 2 is active
-- reward claiming availability (in the current contract design)
-
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
+* platform volume and rankings
+* treasury/LP/buyback accumulators
+* whether Phase 2 is active
+* reward claiming availability (in the current contract design)

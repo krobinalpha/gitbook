@@ -28,11 +28,6 @@ The contract tracks:
 * total trading volume across all users
 
 This enables transparency around usage and participation.
-<<<<<<< HEAD
 
 ## Points note
 In the current on-chain design, **buys award points** while **sells do not** (this helps avoid certain self-trading reward loops).
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67

@@ -32,19 +32,11 @@ When listing occurs:
 
 Phases change:
 
-<<<<<<< HEAD
-- fee rates
-- whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
-- points emission rates (Phase 2 reduces points constants)
-
-## User-facing interpretation
-
-- **Phase 1**: higher fees but higher rewards/points emissions (distribution phase).
-- **Phase 2**: lower fees and ongoing sustainability mechanics (buyback + LP operations).
-
-
-=======
 * fee rates
 * whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
 * points emission rates (Phase 2 reduces points constants)
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
+
+## User-facing interpretation
+
+* **Phase 1**: higher fees but higher rewards/points emissions (distribution phase).
+* **Phase 2**: lower fees and ongoing sustainability mechanics (buyback + LP operations).

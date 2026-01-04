@@ -20,8 +20,8 @@ Basis points (BPS) use a denominator of 10,000.
 
 ## Fee totals (quick comparison)
 
-- **Phase 1 total**: 300 bps (3.0%)
-- **Phase 2 total**: 150 bps (1.5%)
+* **Phase 1 total**: 300 bps (3.0%)
+* **Phase 2 total**: 150 bps (1.5%)
 
 ## Where fees go (high level)
 
@@ -30,11 +30,6 @@ Basis points (BPS) use a denominator of 10,000.
 * **Buyback fee** is accumulated or executed depending on phase rules.
 
 See “Treasury, LP & Buyback Flows” for operational detail.
-<<<<<<< HEAD
 
 ## Important: per-chain accounting
 All fees and fee accumulators are **per chain**. A user trading on one chain does not affect fee accounting on other chains.
-
-
-=======
->>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
