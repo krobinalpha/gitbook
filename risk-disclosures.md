@@ -1,16 +1,17 @@
-# Risk Disclosures
+# ⚡ Risk Disclosures
 
 This document is informational and does not constitute financial advice.
 
 Key risks include:
 
-- smart contract risk (bugs, exploits)
-- oracle/RPC risk and chain outages
-- liquidity risk for newly created tokens
-- volatility and market manipulation
-- regulatory and compliance uncertainty
+* smart contract risk (bugs, exploits)
+* oracle/RPC risk and chain outages
+* liquidity risk for newly created tokens
+* volatility and market manipulation
+* regulatory and compliance uncertainty
 
 Users and investors should evaluate these risks independently.
+<<<<<<< HEAD
 
 ## Additional risks relevant to BondX design
 
@@ -20,3 +21,5 @@ Users and investors should evaluate these risks independently.
 - **Multi-chain fragmentation**: liquidity and adoption can vary dramatically by chain, impacting token dynamics.
 
 
+=======
+>>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67

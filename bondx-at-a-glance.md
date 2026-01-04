@@ -1,22 +1,26 @@
-# BondX at a Glance
+# ⚖️ BondX at a Glance
 
 ## What it is
+
 A launchpad for creating and trading tokens, with phase-based fee routing and a points/tier system designed to reward participation.
 
 ## What makes it different
-- **On-chain fee accounting**: the protocol tracks accumulated fees (LP / buyback / treasury) on-chain.
-- **Phase-based behavior**: Phase 1 focuses on growth and LP accumulation; Phase 2 shifts fee routing and enables buyback and LP operations.
-- **User incentives**: points and volume tiers reward consistent participation, not only one-time events.
+
+* **On-chain fee accounting**: the protocol tracks accumulated fees (LP / buyback / treasury) on-chain.
+* **Phase-based behavior**: Phase 1 focuses on growth and LP accumulation; Phase 2 shifts fee routing and enables buyback and LP operations.
+* **User incentives**: points and volume tiers reward consistent participation, not only one-time events.
 
 ## Multi-chain model
+
 BondX runs the same product experience across multiple chains, but each chain’s:
 
-- contract deployment
-- liquidity state
-- phases
-- fees and metrics
+* contract deployment
+* liquidity state
+* phases
+* fees and metrics
 
 are **independent**.
+<<<<<<< HEAD
 
 ## Key on-chain tracked metrics (per chain)
 
@@ -36,3 +40,5 @@ BondX uses basis points (BPS). Fee schedules are phase-dependent:
 The intent is to allow Phase 1 to emphasize growth and distribution incentives, then shift Phase 2 toward lower fees and sustainable operations.
 
 
+=======
+>>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67

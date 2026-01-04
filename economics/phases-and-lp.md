@@ -1,15 +1,16 @@
-# Phases & LP Listing
+# ☸️ Phases & LP Listing
 
 BondX defines two phases:
 
-- **Phase 1**: initial phase, focused on accumulation and growth mechanics.
-- **Phase 2**: activated after BondXCoin LP listing conditions are met.
+* **Phase 1**: initial phase, focused on accumulation and growth mechanics.
+* **Phase 2**: activated after BondXCoin LP listing conditions are met.
 
 ## LP listing threshold
+
 From `BondX.sol`:
 
-- **LP listing threshold**: 10 ETH
-- **BondXCoin token amount for LP**: 2,500,000 tokens
+* **LP listing threshold**: 10 ETH
+* **BondXCoin token amount for LP**: 2,500,000 tokens
 
 ## How Phase 2 activates (current on-chain design)
 
@@ -20,15 +21,18 @@ Phase 2 is activated on a chain when BondXCoin is listed on Uniswap on that chai
 - Listing sets `bondXCoinListed = true` and `isPhase2Active = true`.
 
 ## What happens at listing
+
 When listing occurs:
 
-- LP is created using the configured amounts
-- Phase 2 becomes active
-- fee schedule switches to Phase 2
+* LP is created using the configured amounts
+* Phase 2 becomes active
+* fee schedule switches to Phase 2
 
 ## Why phases matter
+
 Phases change:
 
+<<<<<<< HEAD
 - fee rates
 - whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
 - points emission rates (Phase 2 reduces points constants)
@@ -39,3 +43,8 @@ Phases change:
 - **Phase 2**: lower fees and ongoing sustainability mechanics (buyback + LP operations).
 
 
+=======
+* fee rates
+* whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
+* points emission rates (Phase 2 reduces points constants)
+>>>>>>> f3332b51e1054aeb4b6b935a87abd65205368d67
