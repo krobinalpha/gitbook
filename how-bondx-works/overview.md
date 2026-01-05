@@ -8,7 +8,7 @@ BondX is an on-chain system that supports:
 * phase tracking
 * points and tier bonuses
 
-At a high level:
+At high level:
 
 1. A creator deploys a new token through the BondX contract.
 2. Traders buy/sell; the contract applies phase-based fees.
