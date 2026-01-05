@@ -14,7 +14,7 @@ Each chain has its own independent BondX deployment. This means:
 
 * platform volume is per-chain
 * fees accumulate per-chain
-* phase state is per-chain
+* BondXCoin LP bootstrap status is per-chain
 * liquidity state is per-chain
 
 BondX may present a unified UX, but **economics do not mix across chains**.
@@ -24,6 +24,6 @@ BondX may present a unified UX, but **economics do not mix across chains**.
 When a user switches chain, all of the following are chain-specific:
 
 * platform volume and rankings
-* treasury/LP/buyback accumulators
-* whether Phase 2 is active
+* treasury/buyback accumulators
+* BondXCoin LP bootstrap status
 * reward claiming availability (in the current contract design)

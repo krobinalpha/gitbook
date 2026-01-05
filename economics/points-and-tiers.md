@@ -12,32 +12,25 @@ Points and tiers are designed to:
 
 From `BondX.sol`:
 
-### Phase 1 points
+Points constants are single-valued in the current deployed contract:
 
-* Create token: 5
-* Points per 1 ETH bought: 10
-* Graduation bonus: 100
-* Graduation progress multiplier: 10
-
-### Phase 2 points (reduced)
-
-* Create token: 2
-* Points per 1 ETH bought: 4
-* Graduation bonus: 40
-* Graduation progress multiplier: 4
+- Create token: `POINTS_CREATE_TOKEN = 5`
+- Points per 1 ETH bought: `POINTS_PER_ETH_BUY = 10`
+- Graduation bonus: `POINTS_GRADUATION_BONUS = 1000`
+- Graduation progress multiplier: `POINTS_GRADUATION_PROGRESS_MULTIPLIER = 1`
 
 ## How points are earned (high level)
 
-- **Create token**: awards points to the creator (phase-dependent)
-- **Buy activity**: awards points based on ETH amount bought (phase-dependent)
-- **Graduation / progress**: awards creator points when progress increases (phase-dependent)
+- **Create token**: awards points to the creator
+- **Buy activity**: awards points based on ETH amount bought
+- **Graduation / progress**: awards creator points when progress increases
 - **Sells**: no points (by design)
 
 ## Claiming rewards
 
 The contract includes a reward claiming function `claimRewards(pointsToClaim)` with the intention that **points can be redeemed into BONDX**.
 
-In the current contract design, claiming is enabled only in **Phase 2** (per chain).
+In the current contract design, claiming is enabled once BondXCoin is configured on-chain (`bondXCoinAddress` is set). See `isClaimingEnabled()`.
 
 Because BONDX is an 18-decimal ERC20, teams should ensure the deployed reward minting matches the intended UX (see Tokenomics → Rewards & Redemption).
 
@@ -57,24 +50,12 @@ Note: many UIs also show a “Starter” tier for users below Bronze.
 
 ## Tier bonus points
 
-The contract awards one-time bonus points when a tier threshold is reached.
+The contract awards one-time bonus points when a tier threshold is reached:
 
-### Phase 1 tier bonus points
-
-* Bronze: 20
-* Silver: 120
-* Gold: 300
-* Platinum: 2,000
-* Diamond: 5,500
-* Legend: 36,000
-* Mythic: 100,000
-
-### Phase 2 tier bonus points
-
-* Bronze: 6
-* Silver: 36
-* Gold: 90
-* Platinum: 600
-* Diamond: 1,650
-* Legend: 10,800
-* Mythic: 30,000
+- Bronze: 20
+- Silver: 120
+- Gold: 300
+- Platinum: 2,000
+- Diamond: 5,500
+- Legend: 36,000
+- Mythic: 100,000

@@ -19,9 +19,9 @@ The BondX contract includes:
 
 Key properties:
 
-* **Claiming is enabled only in Phase 2** (`isPhase2Active`), per chain.
 * Points are deducted when claimed, and a mint is performed from the BONDX contract.
 * BONDX enforces a **hard max supply**, so redemption is bounded by supply.
+* **Claiming is enabled** when `isClaimingEnabled()` returns true (admin-controlled per chain).
 
 ## Sustainability and emission control
 

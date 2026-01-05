@@ -10,12 +10,15 @@ Users buy and sell. Each trade:
 * updates token reserve state
 * updates user trading volume
 * may award points (buys award points; sells do not)
-* applies fees based on Phase 1 or Phase 2
+* applies market-cap tiered fees (creator + treasury + buyback)
 
 ## Graduation / progress
 
 BondX tracks graduation progress for tokens and can award creators progress-based points as the token advances.
 
-## Phase mechanics
+## Ongoing mechanics
 
-Phase changes affect fee routing and operational behavior (LP / buyback logic). See the Economics section for details.
+As trading continues, buyback fees can fund:
+
+- a one-time BondXCoin/ETH LP bootstrap, and
+- buyback + burn operations (subject to thresholds and DEX execution conditions).

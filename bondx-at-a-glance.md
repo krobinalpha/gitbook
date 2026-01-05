@@ -2,13 +2,15 @@
 
 ## What BondX is
 
-A launchpad for creating and trading tokens, with phase-based fee routing and a points/tier system designed to reward participation.
+A launchpad for creating and trading tokens through an on-chain bonding curve, with **market-cap fee tiers** and a **points/tier system** designed to reward participation.
 
 ## What makes BondX different
 
-* **On-chain fee accounting**: the protocol tracks accumulated fees (LP / buyback / treasury) on-chain.
-* **Phase-based behavior**: Phase 1 focuses on growth and LP accumulation; Phase 2 shifts fee routing and enables buyback and LP operations.
+* **On-chain fee accounting**: the protocol tracks accumulated fees (treasury + buyback) on-chain.
+* **Market-cap tiered fees**: fee split changes as a token’s market cap grows (no LP fee in the current design).
+* **BondXCoin LP bootstrap**: buyback fee can fund a one-time BondXCoin/ETH liquidity bootstrap and then ongoing buyback+burn (execution depends on DEX conditions).
 * **User incentives**: points and volume tiers reward consistent participation, not only one-time events.
+* **App-layer security**: embedded wallet withdrawals require an email OTP confirmation (per withdrawal).
 
 ## Multi-chain model
 
@@ -16,7 +18,6 @@ BondX runs the same product experience across multiple chains, but each chain’
 
 * contract deployment
 * liquidity state
-* phases
 * fees and metrics
 
 are **independent**.
@@ -26,14 +27,16 @@ are **independent**.
 * **Total platform trading volume**: `totalTradingVolume`
 * **Per-user trading volume**: `userTradingVolume[user]`
 * **Per-user points**: `userPoints[user]`
-* **Fee accumulators**: `accumulatedTreasuryFee`, `accumulatedLPFee`, `accumulatedBuybackFee`
-* **Phase state**: `isPhase2Active`
+* **Fee accumulators**: `accumulatedTreasuryFee`, `accumulatedBuybackFee`
+* **BondXCoin LP bootstrap state**: `buybackLpAdded`, `bondXCoinListed`
+* **Fee tier parameters**: `feeTier1/2/3/default`, `FEE_TIER*_CAP`, `BPS_DENOMINATOR`
 
 ## Fees (summary)
 
-BondX uses basis points (BPS). Fee schedules are phase-dependent:
+BondX uses basis points (BPS). Fees are **market-cap tiered** and split into:
 
-* **Phase 1 total fee**: 3.0% (0.5% treasury + 2.5% LP + 0% buyback)
-* **Phase 2 total fee**: 1.5% (0.3% treasury + 0.5% LP + 0.7% buyback)
+- creator fee
+- treasury fee
+- buyback fee
 
-The intent is to allow Phase 1 to emphasize growth and distribution incentives, then shift Phase 2 toward lower fees and sustainable operations.
+All current tiers total **1.0%** (100 bps), but the split changes as market cap rises.

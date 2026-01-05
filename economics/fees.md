@@ -1,35 +1,60 @@
-# ◽ Fees
+# ◽ Fees (Market Cap Tiers)
 
-All fee rates below are taken from on-chain constants in `BondX.sol`.
+BondX charges trading fees on **buys and sells**. Fees are expressed in basis points (BPS).
 
-## Fee denominator
+## BPS denominator
 
-Basis points (BPS) use a denominator of 10,000.
+- `BPS_DENOMINATOR = 10,000`
+- Example: `50 bps = 0.50%`
 
-## Phase 1 fees (initial)
+## Fee components (no LP fee)
 
-* **Buyback fee**: 0 bps (0%)
-* **Treasury fee**: 50 bps (0.5%)
-* **LP fee**: 250 bps (2.5%)
+Each trade computes three fees (in ETH):
 
-## Phase 2 fees (after LP listing)
+- **Creator fee** → sent directly to the token creator
+- **Treasury fee** → sent directly to `treasuryAddress` and tracked via `accumulatedTreasuryFee`
+- **Buyback fee** → tracked via `accumulatedBuybackFee` and used for BondXCoin LP bootstrap + buyback/burn
 
-* **Buyback fee**: 70 bps (0.7%)
-* **Treasury fee**: 30 bps (0.3%)
-* **LP fee**: 50 bps (0.5%)
+## Fee tier selection (market cap based)
 
-## Fee totals (quick comparison)
+BondX selects a fee tier based on the token’s **current market cap**:
 
-* **Phase 1 total**: 300 bps (3.0%)
-* **Phase 2 total**: 150 bps (1.5%)
+- `calculateMarketCap(token)` = `(virtualEthReserves / virtualTokenReserves) * totalSupply`
 
-## Where fees go (high level)
+Tier caps (ETH):
 
-* **Treasury fee** is sent to the treasury address and also tracked via an on-chain accumulator.
-* **LP fee** is accumulated (Phase 1), then used for LP operations (Phase 2 behavior).
-* **Buyback fee** is accumulated or executed depending on phase rules.
+- `FEE_TIER1_CAP = 6 ETH`
+- `FEE_TIER2_CAP = 10 ETH`
+- `FEE_TIER3_CAP = 16 ETH`
+- `feeTierDefault` applies when `marketCap >= 16 ETH`
 
-See “Treasury, LP & Buyback Flows” for operational detail.
+## Fee rates by tier
 
-## Important: per-chain accounting
-All fees and fee accumulators are **per chain**. A user trading on one chain does not affect fee accounting on other chains.
+All tiers currently total **100 bps (1.0%)**, but the split changes:
+
+### Tier 1 (market cap < 6 ETH)
+
+- Creator: **30 bps** (0.30%)
+- Treasury: **50 bps** (0.50%)
+- Buyback: **20 bps** (0.20%)
+
+### Tier 2 (6 ETH ≤ market cap < 10 ETH)
+
+- Creator: **40 bps** (0.40%)
+- Treasury: **40 bps** (0.40%)
+- Buyback: **20 bps** (0.20%)
+
+### Tier 3 (10 ETH ≤ market cap < 16 ETH)
+
+- Creator: **60 bps** (0.60%)
+- Treasury: **20 bps** (0.20%)
+- Buyback: **20 bps** (0.20%)
+
+### Default (market cap ≥ 16 ETH)
+
+- Same as Tier 3 (current contract)
+
+## Notes
+
+- Fees are computed on the trade’s ETH amount and applied on-chain.
+- Fee accounting is per-chain (each chain deployment is independent).

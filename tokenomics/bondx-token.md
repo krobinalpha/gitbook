@@ -23,7 +23,7 @@ BONDX can only be minted by the configured BondX contract address:
 Today, BONDX utility is primarily tied to:
 
 * **reward redemption** from earned points (see Rewards & Redemption)
-* **ecosystem mechanics** in Phase 2 such as buyback + burn and liquidity operations (which affect BONDX market dynamics on that chain)
+* **ecosystem mechanics** such as buyback + burn and liquidity operations (which affect BONDX market dynamics on that chain)
 
 Additional utilities (e.g., fee discounts, governance, launch perks) should be documented explicitly if/when introduced.
 

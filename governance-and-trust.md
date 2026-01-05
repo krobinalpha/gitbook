@@ -8,7 +8,7 @@ In the current on-chain design, the owner can typically:
 
 * set key addresses (e.g., treasury, BONDX token address)
 * update operational parameters (e.g., router address, pricing constants such as market cap unit)
-* manually trigger certain actions (e.g., listing BONDX liquidity / activating Phase 2)
+* manually trigger certain actions (e.g., listing BONDX liquidity, enabling rewards claiming)
 * manually graduate tokens (admin override paths)
 
 This creates a trust assumption: the admin key must be secured and governed responsibly.

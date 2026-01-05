@@ -1,30 +1,56 @@
-# On-chain Parameters (from BondX.sol)
+# On-chain Parameters (BondX.sol)
 
-This table reflects constants found in the current `BondX.sol`.
+This table reflects constants/state in the current `BondX.sol`.
 
-## Fees (BPS)
+## Fees
 
-### Phase 1
+- `BPS_DENOMINATOR = 10000`
 
-- Buyback fee: 0
-- Treasury fee: 50
-- LP fee: 250
+### Fee tier caps (market cap)
 
-### Phase 2
+- `FEE_TIER1_CAP = 6 ETH`
+- `FEE_TIER2_CAP = 10 ETH`
+- `FEE_TIER3_CAP = 16 ETH`
 
-- Buyback fee: 70
-- Treasury fee: 30
-- LP fee: 50
+### Fee tiers (BPS)
 
-## LP Listing
+- Tier 1: creator 30, treasury 50, buyback 20
+- Tier 2: creator 40, treasury 40, buyback 20
+- Tier 3: creator 60, treasury 20, buyback 20
+- Default: creator 60, treasury 20, buyback 20
 
-- LP listing threshold: 10 ETH
-- BondXCoin token amount for LP: 2,500,000
+## Treasury & buyback accounting
 
-## Minimums
+- `accumulatedTreasuryFee` (ETH)
+- `accumulatedBuybackFee` (ETH)
+- `buybackLpAdded` (bool)
+- `bondXCoinListed` (bool)
 
-- Min buyback execution amount: 0.01 ETH
-- Min LP add amount: 0.01 ETH
+## Buyback LP bootstrap
+
+- `BUYBACK_LP_THRESHOLD = 5 ETH`
+- `BUYBACK_LP_TOKEN_AMOUNT = 50,000,000 BondXCoin`
+- `MIN_BUYBACK_AMOUNT = 0.01 ETH`
+- `MIN_LP_ADD_AMOUNT = 0.01 ETH`
+
+## Bonding curve / supply
+
+- `TOTAL_SUPPLY = 1,000,000,000`
+- `VIRTUAL_TOKEN_RESERVES = 1,000,000,000`
+- `VIRTUAL_ETH_RESERVES = 1 ETH`
+
+## Graduation config
+
+- `marketCapUnit = 0.01 ETH` (owner-settable)
+- `DEFAULT_GRADUATION_MULTIPLIER = 3`
+- `graduationEth = DEFAULT_GRADUATION_MULTIPLIER * marketCapUnit` (default behavior)
+
+## Points
+
+- `POINTS_CREATE_TOKEN = 5`
+- `POINTS_PER_ETH_BUY = 10`
+- `POINTS_GRADUATION_BONUS = 1000`
+- `POINTS_GRADUATION_PROGRESS_MULTIPLIER = 1`
 
 ## Volume tier thresholds (ETH)
 
@@ -36,25 +62,7 @@ This table reflects constants found in the current `BondX.sol`.
 - Legend: 5,000
 - Mythic: 10,000
 
-## Points
-
-### Phase 1
-
-- Create token: 5
-- Per 1 ETH buy: 10
-- Graduation bonus: 100
-- Graduation progress multiplier: 10
-
-### Phase 2
-
-- Create token: 2
-- Per 1 ETH buy: 4
-- Graduation bonus: 40
-- Graduation progress multiplier: 4
-
 ## Tier bonus points
-
-### Phase 1
 
 - Bronze: 20
 - Silver: 120
@@ -63,15 +71,3 @@ This table reflects constants found in the current `BondX.sol`.
 - Diamond: 5,500
 - Legend: 36,000
 - Mythic: 100,000
-
-### Phase 2
-
-- Bronze: 6
-- Silver: 36
-- Gold: 90
-- Platinum: 600
-- Diamond: 1,650
-- Legend: 10,800
-- Mythic: 30,000
-
-

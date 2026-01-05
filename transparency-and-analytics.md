@@ -10,9 +10,10 @@ Examples include:
 * per-user trading volume (`userTradingVolume[address]`)
 * points (`userPoints[address]`)
 * tokens created by creator (`creatorTokens[address]`)
-* accumulated fees (`accumulated*Fee`)
-* phase state (`isPhase2Active`)
-* LP listing threshold (`LP_LISTING_THRESHOLD`)
+* accumulated fees (`accumulatedTreasuryFee`, `accumulatedBuybackFee`)
+* fee tier parameters (`feeTier1/2/3/default`, `FEE_TIER*_CAP`, `BPS_DENOMINATOR`)
+* BondXCoin / buyback state (`bondXCoinAddress`, `bondXCoinListed`, `buybackLpAdded`)
+* buyback/LP bootstrap parameters (`BUYBACK_LP_THRESHOLD`, `MIN_BUYBACK_AMOUNT`, `MIN_LP_ADD_AMOUNT`)
 
 ## Off-chain indexing (optional)
 
@@ -29,9 +30,8 @@ When off-chain metrics are displayed, BondX should clearly label:
 To avoid confusion, dashboards should define metrics precisely:
 
 * **Total Platform Volume (ETH)**: `totalTradingVolume` on the selected chain.
-* **Treasury Fee (ETH)**: `accumulatedTreasuryFee` on the selected chain.
-* **LP Fee (ETH)**: `accumulatedLPFee` on the selected chain.
-* **Buyback Fee (ETH)**: `accumulatedBuybackFee` on the selected chain.
+* **Treasury Fees (ETH)**: `accumulatedTreasuryFee` on the selected chain.
+* **Buyback Fees (ETH)**: `accumulatedBuybackFee` on the selected chain.
 * **User Tier**: derived from `userTradingVolume[user]` vs tier thresholds (per chain).
 * **Creator tokens created**: count of `creatorTokens[creator]` (per chain deployment).
 

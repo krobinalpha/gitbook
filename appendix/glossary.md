@@ -6,14 +6,14 @@ One basis point is 0.01%. 100 bps = 1%.
 ## Chain-specific economics
 BondX runs independent deployments per chain. Volume, fees, phase state, and rankings are per chain.
 
-## Phase 1 / Phase 2
-Two fee and behavior regimes. Phase 2 activates after BONDX liquidity listing on that chain.
-
-## LP fee
-Fee portion used for liquidity operations. Accumulates in Phase 1; can be executed in Phase 2.
+## Fee tier (market cap based)
+BondX selects a fee split based on the token’s current market cap. Tiers are defined by `FEE_TIER*_CAP` constants and `feeTier1/2/3/default` structs.
 
 ## Buyback fee
-Fee portion used to buy BONDX from the market and burn it (Phase 2 behavior).
+Fee portion accumulated on-chain and used for BondXCoin LP bootstrap and buyback+burn operations (execution depends on thresholds and DEX conditions).
+
+## Buyback LP bootstrap
+One-time liquidity add funded by accumulated buyback fees once `BUYBACK_LP_THRESHOLD` is reached (sets `buybackLpAdded = true`).
 
 ## Treasury fee
 Fee portion sent to a treasury address and also tracked via an on-chain accumulator.

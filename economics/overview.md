@@ -4,12 +4,17 @@ BondX economics are defined primarily on-chain and operate independently per cha
 
 This section explains:
 
-* fee model (Phase 1 and Phase 2)
-* LP listing conditions and phase transition
+* fee model (market-cap fee tiers)
+* BondXCoin LP bootstrap and buyback mechanics
 * points and user tiers (volume thresholds and bonuses)
-* how treasury, LP, and buyback flows work
+* how treasury and buyback flows work
 
-## Phase 1 vs Phase 2 (user summary)
+## User summary
 
-* **Phase 1**: higher total fees, higher points emissions (distribution/incentive phase).
-* **Phase 2**: lower total fees, buyback + LP operations active, claiming enabled (sustainability phase).
+BondX has **no Phase 1 / Phase 2** in the current deployed contract. Instead:
+
+* **Fees are tiered by market cap** (creator + treasury + buyback; no LP fee).
+* **Buyback fee** funds:
+  * a one-time **BondXCoin LP bootstrap** on Uniswap once a threshold is reached, and then
+  * ongoing **buyback + burn** operations when enough buyback ETH accumulates.
+* **Claiming rewards** is enabled once BondXCoin is configured on-chain (`bondXCoinAddress` is set).

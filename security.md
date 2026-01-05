@@ -3,13 +3,19 @@
 ## Design considerations
 
 * On-chain accounting for key metrics (fees, volume, points) reduces reliance on centralized reporting.
-* Phase-based constraints reduce operational complexity early and enable more advanced operations later.
+* Fee logic is deterministic and tiered (market-cap based), reducing hidden off-chain rules.
+* Buyback/LP operations rely on external DEX execution and can fail; failures should be reported transparently.
 
 ## Key trust assumptions
 
 - **Admin key risk**: owner permissions exist and must be secured (multisig recommended).
-- **DEX assumptions**: Phase 2 mechanics rely on Uniswap-style swaps/liquidity adds, subject to slippage and market conditions.
+- **DEX assumptions**: buyback and LP bootstrap rely on Uniswap-style swaps/liquidity adds, subject to slippage and market conditions.
 - **RPC/indexer assumptions**: UIs and dashboards may rely on RPC providers and/or indexing services for speed, even if the source of truth is on-chain.
+
+## Application-layer security (off-chain)
+
+- **Email OTP for embedded wallet withdrawals**: withdrawals from embedded wallets require a verification code sent to the user’s email (per withdrawal).
+- **JWT auth**: API access is gated by JWT; sensitive endpoints should require auth + rate limits.
 
 ## Operational best practices
 

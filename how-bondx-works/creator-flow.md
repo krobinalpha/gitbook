@@ -28,8 +28,9 @@ As trading occurs:
 
 ## 4) Post-launch behavior
 
-After Phase 2 is activated (per chain), protocol mechanics change:
+Post-launch mechanics are always active in the current design, but behavior depends on configuration and thresholds:
 
-* fees are lower overall
-* buyback and LP mechanics become active
-* rewards claiming is enabled (in the current on-chain design)
+* **Fees are market-cap tiered** (creator/treasury/buyback; no LP fee).
+* **Buyback mechanics** execute when enough buyback fee accumulates (subject to minimum thresholds and DEX conditions).
+* **BondXCoin LP bootstrap** occurs once buyback accumulation reaches the on-chain threshold (sets `buybackLpAdded = true`).
+* **Rewards claiming** is enabled once BondXCoin is configured (`bondXCoinAddress` is set).

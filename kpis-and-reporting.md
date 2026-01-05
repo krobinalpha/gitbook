@@ -24,12 +24,11 @@ This section defines product-level KPIs and how BondX should report them profess
 * **Total platform volume (ETH)**: on-chain `totalTradingVolume` on the selected chain (all-time) + optional “period volume” from events.
 * **Trades count**: number of buy/sell events in the time window (indexed).
 * **Graduation rate**: % of tokens reaching graduation conditions (definition must match contract semantics).
-* **Phase 2 status**: on-chain `isPhase2Active` (per chain).
+* **BondXCoin LP bootstrap status**: `buybackLpAdded` and `bondXCoinListed` (per chain).
 
 ### Unit economics (transparent by design)
 
 * **Treasury fee accumulated (ETH)**: on-chain `accumulatedTreasuryFee` on the selected chain (all-time).
-* **LP fee accumulated (ETH)**: on-chain `accumulatedLPFee` on the selected chain (all-time).
 * **Buyback fee accumulated (ETH)**: on-chain `accumulatedBuybackFee` on the selected chain (all-time).
 * **Executed operations** (indexed from events):
   * buyback attempts, successes, failures

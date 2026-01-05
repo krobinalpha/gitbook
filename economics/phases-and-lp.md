@@ -1,51 +1,43 @@
-# ☸️ Phases & LP Listing
+# ☸️ BondXCoin LP Bootstrap (Buyback Fee)
 
-BondX defines two phases:
+The current deployed BondX contract has **no Phase 1 / Phase 2** and **no LP fee**.
 
-* **Phase 1**: initial phase, focused on accumulation and growth mechanics.
-* **Phase 2**: activated after BondXCoin LP listing conditions are met.
+Instead, the protocol uses the **buyback fee** to:
 
-## LP listing threshold
+1) bootstrap initial BondXCoin/ETH liquidity on Uniswap, then  
+2) perform ongoing buyback-and-burn operations when enough buyback ETH accumulates.
+
+## Key on-chain state
+
+- `accumulatedBuybackFee` (ETH)
+- `buybackLpAdded` (bool)
+- `bondXCoinListed` (bool)
+
+## Bootstrap threshold
 
 From `BondX.sol`:
 
-* **LP listing threshold**: 10 ETH
-* **BondXCoin token amount for LP**: 2,500,000 tokens
+- `BUYBACK_LP_THRESHOLD = 5 ETH`
+- `BUYBACK_LP_TOKEN_AMOUNT = 50,000,000 BondXCoin` (18 decimals)
 
-## How Phase 2 activates (current on-chain design)
+## How it works (high level)
 
-Phase 2 is activated on a chain when BondXCoin is listed on Uniswap on that chain. In the contract:
+- On each trade, the buyback portion increases `accumulatedBuybackFee`.
+- If `buybackLpAdded == false` and `accumulatedBuybackFee >= BUYBACK_LP_THRESHOLD`:
+  - BondX attempts to add BondXCoin/ETH liquidity using exactly `BUYBACK_LP_THRESHOLD` worth of ETH.
+  - On success:
+    - `accumulatedBuybackFee -= BUYBACK_LP_THRESHOLD`
+    - `buybackLpAdded = true`
+    - `bondXCoinListed = true`
+    - any remaining `accumulatedBuybackFee` may be used for buyback/burn (subject to minimums)
 
-* Phase 1 LP fees accumulate into `accumulatedLPFee`.
-* When `accumulatedLPFee >= LP_LISTING_THRESHOLD`, the owner can trigger listing via `listBondXCoinManually()`.
-* Listing sets `bondXCoinListed = true` and `isPhase2Active = true`.
+## Minimum execution amounts
 
-## “Automatic” listing (recommended upgrade)
+- `MIN_BUYBACK_AMOUNT = 0.01 ETH`
+- `MIN_LP_ADD_AMOUNT = 0.01 ETH`
 
-If BondX wants Phase 2 activation to be **automatic**, the contract can be wired so that once the threshold is reached, a keeper/automation job triggers listing.
+## What users should expect
 
-Important: this is an **operational choice**:
-
-* **Manual activation** is simpler and reduces automation risk, but requires an admin action.
-* **Automated activation** improves UX and consistency, but introduces keeper dependency and requires careful safeguards.
-
-## What happens at listing
-
-When listing occurs:
-
-* LP is created using the configured amounts
-* Phase 2 becomes active
-* fee schedule switches to Phase 2
-
-## Why phases matter
-
-Phases change:
-
-* fee rates
-* whether certain actions happen immediately (e.g., buyback/liquidity add) vs accumulate for later
-* points emission rates (Phase 2 reduces points constants)
-
-## User-facing interpretation
-
-* **Phase 1**: higher fees but higher rewards/points emissions (distribution phase).
-* **Phase 2**: lower fees and ongoing sustainability mechanics (buyback + LP operations).
+- Before LP bootstrap succeeds, buyback ETH accumulates.
+- After LP bootstrap, buyback/burn can execute when enough ETH is accumulated.
+- These mechanics do not guarantee market outcomes; swaps can fail due to liquidity, slippage, or routing.

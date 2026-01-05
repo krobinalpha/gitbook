@@ -1,47 +1,37 @@
-# 💰 Treasury, LP & Buyback Flows
+# 💰 Treasury & Buyback Flows
 
-BondX tracks fee accumulation on-chain, per chain.
+BondX tracks and routes fee flows on-chain, per chain deployment.
 
 ## Key on-chain accumulators
 
-* `accumulatedTreasuryFee`
-* `accumulatedLPFee`
-* `accumulatedBuybackFee`
+- `accumulatedTreasuryFee`
+- `accumulatedBuybackFee`
 
 ## Treasury fee
 
-* Taken on buys/sells using the phase-based treasury bps.
-* Sent directly to the configured `treasuryAddress`.
-* Also increments `accumulatedTreasuryFee`.
+- Computed per trade via the current **market-cap fee tier**.
+- Sent directly to `treasuryAddress`.
+- Increments `accumulatedTreasuryFee` and emits `TreasuryFeePaid`.
 
-## LP fee
+## Creator fee
 
-* Phase 1: LP fee accumulates into `accumulatedLPFee`.
-* Phase 2: LP fee can be used for liquidity operations, with minimum execution thresholds enforced.
+- Computed per trade via the current fee tier.
+- Sent directly to the token creator and emits `CreatorFeePaid`.
+- Not stored in an on-chain accumulator in the current contract.
 
 ## Buyback fee
 
-* Phase 1: set to 0 bps (effectively no buyback fee).
-* Phase 2: buyback fee is enabled; it may execute immediately and/or accumulate based on minimum thresholds and execution outcomes.
-
-## Why this can support BONDX price and grow LP (without guarantees)
-
-In Phase 2, the protocol routes part of trading activity into:
-
-* **buyback + burn**: creates market buy pressure for BONDX and reduces circulating supply (burn), and
-* **liquidity adds**: increases BONDX liquidity depth over time (LP growth), which can reduce volatility and improve tradability.
-
-Important: none of this guarantees price appreciation. Market conditions, sell pressure, slippage, and execution failures can all impact outcomes. The professional claim is: **these mechanics can support price and liquidity over time**.
+- Computed per trade via the current fee tier.
+- Increments `accumulatedBuybackFee`.
+- Used for:
+  - a one-time **BondXCoin LP bootstrap** on Uniswap (when `BUYBACK_LP_THRESHOLD` is reached and `buybackLpAdded == false`), and then
+  - **buyback + burn** operations when enough buyback ETH accumulates (subject to `MIN_BUYBACK_AMOUNT`).
 
 ## “Accumulated” vs “executed”
 
 Investors should distinguish between:
 
-- **accumulated fee totals** (on-chain accounting variables), and
-- **executed operations** (e.g., buyback swaps, liquidity adds), which can be subject to slippage, minimum thresholds, and execution failures.
+- **accumulated totals** (on-chain accounting variables), and
+- **executed operations** (buyback swaps, liquidity adds), which can be subject to slippage, minimum thresholds, and execution failures.
 
-BondX tracks both accounting and execution events, enabling transparency around “what should have happened” vs “what actually happened”.
-
-## Why this matters for transparency
-
-Because these values are on-chain, analytics dashboards can show fee totals without relying solely on off-chain indexing.
+Because key values are on-chain, dashboards can display fee totals without relying only on off-chain indexing.

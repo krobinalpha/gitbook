@@ -2,51 +2,48 @@
 
 These diagrams are intended to make the mechanics easy to visualize. They are conceptual and should match the deployed contract behavior.
 
-## Phase 1 → Phase 2 activation (current design)
+## BondXCoin LP bootstrap (current design)
 
 ```mermaid
 flowchart TD
-  A[Trades happen on a chain] --> B[LP fee accumulates: accumulatedLPFee]
-  B --> C{accumulatedLPFee >= LP_LISTING_THRESHOLD?}
+  A[Trades happen on a chain] --> B[Buyback fee accumulates: accumulatedBuybackFee]
+  B --> C{buybackLpAdded == false AND accumulatedBuybackFee >= BUYBACK_LP_THRESHOLD?}
   C -- No --> B
-  C -- Yes --> D[Owner calls listBondXCoinManually()]
-  D --> E[Add BONDX liquidity on Uniswap]
-  E --> F[Burn LP tokens]
-  F --> G[Set isPhase2Active = true]
+  C -- Yes --> D[Add BondXCoin/ETH liquidity on Uniswap using BUYBACK_LP_THRESHOLD]
+  D --> E[Burn LP tokens]
+  E --> F[Set buybackLpAdded=true and bondXCoinListed=true]
 ```
 
 ## Fee routing on buys/sells (high-level)
 
 ```mermaid
 flowchart TD
-  T[Trade (buy/sell)] --> F[Compute phase-based fees]
+  T[Trade (buy/sell)] --> F[Compute market-cap fee tier]
   F --> TR[Treasury fee]
-  F --> LP[LP fee]
+  F --> CR[Creator fee]
   F --> BB[Buyback fee]
   TR --> TR2[Send to treasuryAddress + increment accumulator]
-  LP --> LP2[Accumulate in Phase 1 / Execute ops in Phase 2]
-  BB --> BB2[0% in Phase 1 / Execute buyback+burn in Phase 2]
+  CR --> CR2[Send to token creator]
+  BB --> BB2[Accumulate; bootstrap LP once; then buyback+burn when thresholds are met]
 ```
 
-## Phase 2 buyback + burn (concept)
+## Buyback + burn (concept)
 
 ```mermaid
 flowchart TD
-  A[Trade in Phase 2] --> B[Buyback fee collected]
+  A[Trade] --> B[Buyback fee collected]
   B --> C[Swap ETH -> BONDX on Uniswap]
   C --> D[Burn BONDX received]
   D --> E[Supply reduction; potential buy pressure]
 ```
 
-## Phase 2 liquidity add + LP burn (concept)
+## BondXCoin LP bootstrap + LP burn (concept)
 
 ```mermaid
 flowchart TD
-  A[Trade in Phase 2] --> B[LP fee collected]
-  B --> C[Split ETH: half buys BONDX]
-  C --> D[Add liquidity (ETH + BONDX)]
-  D --> E[Burn LP tokens]
-  E --> F[Liquidity depth can grow over time]
+  A[Buyback fee accumulation] --> B[When threshold reached, add liquidity (ETH + BondXCoin)]
+  B --> C[Burn LP tokens]
+  C --> D[BondXCoin liquidity can increase; buyback/burn can proceed later]
 ```
 
 

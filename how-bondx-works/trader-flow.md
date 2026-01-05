@@ -14,14 +14,14 @@ Because BondX is multi-chain with per-chain independence, traders should always 
 Traders can buy and sell tokens. Each trade:
 
 - updates per-token reserve state
-- applies phase-based fees
+- applies market-cap tiered fees (creator + treasury + buyback)
 - updates the trader’s on-chain trading volume
 - updates total platform trading volume (per chain)
 
 ## 3) Earn points and tiers
 Points are awarded for buys (and other actions). Tier bonuses are awarded when users cross volume thresholds.
 
-## 4) Claim rewards (Phase 2)
-In the current on-chain design, rewards claiming is enabled only when Phase 2 is active (per chain).
+## 4) Claim rewards
+In the current on-chain design, rewards claiming is enabled once BondXCoin is configured on-chain (`bondXCoinAddress` is set).
 
 
