@@ -11,7 +11,7 @@ Examples include:
 * points (`userPoints[address]`)
 * tokens created by creator (`creatorTokens[address]`)
 * accumulated fees (`accumulatedTreasuryFee`, `accumulatedBuybackFee`)
-* fee tier parameters (`feeTier1/2/3/default`, `FEE_TIER*_CAP`, `BPS_DENOMINATOR`)
+* fee tier parameters (`feeTier1/2/3/default`, `BPS_DENOMINATOR`, and tier thresholds derived from `graduationEth`)
 * BondXCoin / buyback state (`bondXCoinAddress`, `bondXCoinListed`, `buybackLpAdded`)
 * buyback/LP bootstrap parameters (`BUYBACK_LP_THRESHOLD`, `MIN_BUYBACK_AMOUNT`, `MIN_LP_ADD_AMOUNT`)
 
@@ -29,10 +29,10 @@ When off-chain metrics are displayed, BondX should clearly label:
 
 To avoid confusion, dashboards should define metrics precisely:
 
-* **Total Platform Volume (ETH)**: `totalTradingVolume` on the selected chain.
-* **Treasury Fees (ETH)**: `accumulatedTreasuryFee` on the selected chain.
-* **Buyback Fees (ETH)**: `accumulatedBuybackFee` on the selected chain.
-* **User Tier**: derived from `userTradingVolume[user]` vs tier thresholds (per chain).
+* **Total Platform Volume (native token)**: `totalTradingVolume` on the selected chain (ETH/BNB).
+* **Treasury Fees (native token)**: `accumulatedTreasuryFee` on the selected chain.
+* **Buyback Fees (native token)**: `accumulatedBuybackFee` on the selected chain.
+* **User Tier**: derived from `userPoints[user]` vs the points-tier thresholds (per chain leaderboards/ranks should also be chain-specific).
 * **Creator tokens created**: count of `creatorTokens[creator]` (per chain deployment).
 
 ## Fast + correct rankings (best practice)

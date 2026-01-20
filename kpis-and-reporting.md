@@ -4,7 +4,7 @@ This section defines product-level KPIs and how BondX should report them profess
 
 ## Principles
 
-* **Chain-specific first**: every KPI must specify the chain ID (Ethereum / Arbitrum / Base).
+* **Chain-specific first**: every KPI must specify the chain ID (Ethereum / BSC / Arbitrum / Base).
 * **Clear source labeling**: each KPI must state whether it is:
   * on-chain direct read, or
   * derived from indexed events / database.
@@ -21,23 +21,23 @@ This section defines product-level KPIs and how BondX should report them profess
 
 ### Activity & Liquidity
 
-* **Total platform volume (ETH)**: on-chain `totalTradingVolume` on the selected chain (all-time) + optional “period volume” from events.
+* **Total platform volume (native token)**: on-chain `totalTradingVolume` on the selected chain (all-time, in ETH/BNB) + optional “period volume” from events.
 * **Trades count**: number of buy/sell events in the time window (indexed).
 * **Graduation rate**: % of tokens reaching graduation conditions (definition must match contract semantics).
 * **BondXCoin LP bootstrap status**: `buybackLpAdded` and `bondXCoinListed` (per chain).
 
 ### Unit economics (transparent by design)
 
-* **Treasury fee accumulated (ETH)**: on-chain `accumulatedTreasuryFee` on the selected chain (all-time).
-* **Buyback fee accumulated (ETH)**: on-chain `accumulatedBuybackFee` on the selected chain (all-time).
+* **Treasury fee accumulated (native token)**: on-chain `accumulatedTreasuryFee` on the selected chain (all-time).
+* **Buyback fee accumulated (native token)**: on-chain `accumulatedBuybackFee` on the selected chain (all-time).
 * **Executed operations** (indexed from events):
   * buyback attempts, successes, failures
   * liquidity add attempts, successes, failures
 
 ### Rewards & incentives
 
-* **Points issued**: on-chain `totalPointsDistributed` (per chain deployment).
-* **Rewards distributed**: on-chain `totalRewardsDistributed` (per chain deployment).
+* **Points issued (point-wei)**: on-chain `totalRewardsDistributed` (per chain deployment).
+* **Points claimed / BONDX minted (point-wei)**: on-chain `totalRewardsClaimed` (per chain deployment).
 * **Claiming enabled**: `isClaimingEnabled()` (per chain deployment).
 
 ## Reporting standard (what “professional” looks like)

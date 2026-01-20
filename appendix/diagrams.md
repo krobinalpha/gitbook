@@ -9,7 +9,7 @@ flowchart TD
   A[Trades happen on a chain] --> B[Buyback fee accumulates: accumulatedBuybackFee]
   B --> C{buybackLpAdded == false AND accumulatedBuybackFee >= BUYBACK_LP_THRESHOLD?}
   C -- No --> B
-  C -- Yes --> D[Add BondXCoin/ETH liquidity on Uniswap using BUYBACK_LP_THRESHOLD]
+  C -- Yes --> D[Add BondXCoin/native-token liquidity on router using BUYBACK_LP_THRESHOLD]
   D --> E[Burn LP tokens]
   E --> F[Set buybackLpAdded=true and bondXCoinListed=true]
 ```
@@ -18,7 +18,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  T[Trade (buy/sell)] --> F[Compute market-cap fee tier]
+  T[Trade (buy/sell)] --> F[Compute graduation-progress fee tier]
   F --> TR[Treasury fee]
   F --> CR[Creator fee]
   F --> BB[Buyback fee]
@@ -32,7 +32,7 @@ flowchart TD
 ```mermaid
 flowchart TD
   A[Trade] --> B[Buyback fee collected]
-  B --> C[Swap ETH -> BONDX on Uniswap]
+  B --> C[Swap native token -> BONDX on configured router]
   C --> D[Burn BONDX received]
   D --> E[Supply reduction; potential buy pressure]
 ```

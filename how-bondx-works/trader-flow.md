@@ -14,7 +14,7 @@ Because BondX is multi-chain with per-chain independence, traders should always 
 Traders can buy and sell tokens. Each trade:
 
 - updates per-token reserve state
-- applies market-cap tiered fees (creator + treasury + buyback)
+- applies graduation-progress tiered fees (creator + treasury + buyback)
 - updates the trader’s on-chain trading volume
 - updates total platform trading volume (per chain)
 

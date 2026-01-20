@@ -3,13 +3,13 @@
 ## Design considerations
 
 * On-chain accounting for key metrics (fees, volume, points) reduces reliance on centralized reporting.
-* Fee logic is deterministic and tiered (market-cap based), reducing hidden off-chain rules.
+* Fee logic is deterministic and tiered (graduation-progress based), reducing hidden off-chain rules.
 * Buyback/LP operations rely on external DEX execution and can fail; failures should be reported transparently.
 
 ## Key trust assumptions
 
 - **Admin key risk**: owner permissions exist and must be secured (multisig recommended).
-- **DEX assumptions**: buyback and LP bootstrap rely on Uniswap-style swaps/liquidity adds, subject to slippage and market conditions.
+- **DEX assumptions**: buyback and LP bootstrap rely on UniswapV2-style swaps/liquidity adds (e.g., Uniswap/PancakeSwap routers), subject to slippage and market conditions.
 - **RPC/indexer assumptions**: UIs and dashboards may rely on RPC providers and/or indexing services for speed, even if the source of truth is on-chain.
 
 ## Application-layer security (off-chain)

@@ -22,7 +22,7 @@ BondX addresses this by keeping the most important metrics on-chain where possib
 
 ## What BondX optimizes for
 
-* **Clarity**: explicit market-cap-based fee tiers and BondXCoin LP bootstrap mechanics
+* **Clarity**: explicit graduation-progress fee tiers and BondXCoin LP bootstrap mechanics
 * **Transparency**: on-chain tracked volume and fee accumulation
 * **Incentives**: points, tiers, and progress rewards for meaningful participation
 * **Sustainability**: tiered fees reduce as tokens grow; buyback fee funds BondXCoin LP bootstrap

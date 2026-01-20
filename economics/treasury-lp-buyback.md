@@ -9,7 +9,7 @@ BondX tracks and routes fee flows on-chain, per chain deployment.
 
 ## Treasury fee
 
-- Computed per trade via the current **market-cap fee tier**.
+- Computed per trade via the current **graduation-progress fee tier**.
 - Sent directly to `treasuryAddress`.
 - Increments `accumulatedTreasuryFee` and emits `TreasuryFeePaid`.
 
@@ -24,8 +24,8 @@ BondX tracks and routes fee flows on-chain, per chain deployment.
 - Computed per trade via the current fee tier.
 - Increments `accumulatedBuybackFee`.
 - Used for:
-  - a one-time **BondXCoin LP bootstrap** on Uniswap (when `BUYBACK_LP_THRESHOLD` is reached and `buybackLpAdded == false`), and then
-  - **buyback + burn** operations when enough buyback ETH accumulates (subject to `MIN_BUYBACK_AMOUNT`).
+  - a one-time **BondXCoin LP bootstrap** on the configured UniswapV2-style router (when `BUYBACK_LP_THRESHOLD` is reached and `buybackLpAdded == false`), and then
+  - **buyback + burn** operations when enough buyback native token accumulates (subject to `MIN_BUYBACK_AMOUNT`).
 
 ## “Accumulated” vs “executed”
 

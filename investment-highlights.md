@@ -6,7 +6,7 @@ BondX is designed around a simple thesis: **make early token markets more transp
 
 * **Multi-chain from day 1**: one product experience across chains, while keeping each chain's economics independent.
 * **On-chain measurable economics**: key metrics (fees, volume, points) are tracked on-chain and can be verified publicly.
-* **Market-cap-based fee tiers**: fees decrease as tokens grow, aligning platform incentives with token success.
+* **Graduation-progress fee tiers**: fee split adjusts as tokens move toward graduation, aligning platform incentives with token success.
 * **Gamified participation with a hard cap token**: points are earned by meaningful on-chain actions and can be redeemed into BONDX (subject to token supply constraints).
 
 ## What investors should watch

@@ -4,7 +4,7 @@ BondX provides:
 
 * **Token creation** via an on-chain factory-style contract
 * **Trading** using on-chain pricing mechanics
-* **Fee routing and accounting** that is explicit and measurable (market-cap tiered)
+* **Fee routing and accounting** that is explicit and measurable (graduation-progress tiered)
 * **BondXCoin LP bootstrap** funded by buyback fee accumulation
 * **A points + tiers system** based on user actions and volume
 

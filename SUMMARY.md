@@ -15,7 +15,7 @@
   * [🪙 Token Lifecycle](how-bondx-works/token-lifecycle.md)
   * [🔱 Trading & Pricing](how-bondx-works/trading-and-pricing.md)
 * [💸 Economics](economics/overview.md)
-  * [◽ Fees (Market Cap Tiers)](economics/fees.md)
+  * [◽ Fees (Graduation Tiers)](economics/fees.md)
   * [☸️ BondXCoin LP Bootstrap (Buyback Fee)](economics/phases-and-lp.md)
   * [🔤 Points & User Tiers](economics/points-and-tiers.md)
   * [💰 Treasury & Buyback Flows](economics/treasury-lp-buyback.md)

@@ -3,6 +3,7 @@
 BondX is a multi-chain launchpad. Current supported chains:
 
 * **Ethereum**
+* **BSC (Binance Smart Chain)**
 * **Arbitrum**
 * **Base**
 
@@ -18,6 +19,15 @@ Each chain has its own independent BondX deployment. This means:
 * liquidity state is per-chain
 
 BondX may present a unified UX, but **economics do not mix across chains**.
+
+## Native token units (ETH vs BNB)
+
+BondX accounting is always denominated in the chain’s **native token**:
+
+- Ethereum / Arbitrum / Base: **ETH**
+- BSC: **BNB**
+
+When you see “ETH” in older docs or variable names, read it as “native token on that chain”.
 
 ## Practical implication for users
 

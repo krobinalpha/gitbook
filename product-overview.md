@@ -4,7 +4,7 @@ BondX is a multi-chain launchpad that supports:
 
 * token creation by creators
 * early buy/sell trading by users
-* market-cap tiered fees (creator + treasury + buyback; no LP fee)
+* graduation-progress tiered fees (creator + treasury + buyback; no LP fee)
 * a points + tier system that rewards activity and progress
 * embedded wallet withdrawals protected by **email OTP**
 

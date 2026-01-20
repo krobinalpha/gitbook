@@ -30,7 +30,7 @@ As trading occurs:
 
 Post-launch mechanics are always active in the current design, but behavior depends on configuration and thresholds:
 
-* **Fees are market-cap tiered** (creator/treasury/buyback; no LP fee).
+* **Fees are graduation-progress tiered** (creator/treasury/buyback; no LP fee).
 * **Buyback mechanics** execute when enough buyback fee accumulates (subject to minimum thresholds and DEX conditions).
 * **BondXCoin LP bootstrap** occurs once buyback accumulation reaches the on-chain threshold (sets `buybackLpAdded = true`).
 * **Rewards claiming** is enabled once BondXCoin is configured (`bondXCoinAddress` is set).

@@ -6,8 +6,8 @@ One basis point is 0.01%. 100 bps = 1%.
 ## Chain-specific economics
 BondX runs independent deployments per chain. Volume, fees, phase state, and rankings are per chain.
 
-## Fee tier (market cap based)
-BondX selects a fee split based on the token’s current market cap. Tiers are defined by `FEE_TIER*_CAP` constants and `feeTier1/2/3/default` structs.
+## Fee tier (graduation-progress based)
+BondX selects a fee split based on the token’s graduation progress (its `realEthReserves` relative to `graduationEth`). Tiers are defined by `feeTier1/2/3/default` structs and the progress thresholds derived from `graduationEth` (35% and 70% in the current contract).
 
 ## Buyback fee
 Fee portion accumulated on-chain and used for BondXCoin LP bootstrap and buyback+burn operations (execution depends on thresholds and DEX conditions).

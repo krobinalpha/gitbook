@@ -20,4 +20,4 @@ BondX is designed as a **multi-chain launchpad from day 1**. Each supported chai
 
 ## Supported chains (current)
 
-BondX currently supports **Ethereum**, **Arbitrum**, and **Base**. More chains may be added later.
+BondX currently supports **Ethereum**, **BSC (Binance Smart Chain)**, **Arbitrum**, and **Base**. More chains may be added later.

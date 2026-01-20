@@ -1,6 +1,6 @@
 # 🔤 Points & User Tiers
 
-BondX includes an on-chain points system and a volume-based tier structure.
+BondX includes an on-chain points system and a points-based tier structure.
 
 Points and tiers are designed to:
 
@@ -12,50 +12,59 @@ Points and tiers are designed to:
 
 From `BondX.sol`:
 
-Points constants are single-valued in the current deployed contract:
+### Points scaling (critical)
+
+Points are tracked with **18-decimal precision**, similar to ETH:
+
+- On-chain `userPoints[user]` are stored as **point-wei**
+- **1.0 point** = \(1 \times 10^{18}\) point-wei
+
+### Point constants (per chain family)
+
+**Ethereum / Arbitrum / Base**
 
 - Create token: `POINTS_CREATE_TOKEN = 5`
-- Points per 1 ETH bought: `POINTS_PER_ETH_BUY = 10`
-- Graduation bonus: `POINTS_GRADUATION_BONUS = 1000`
-- Graduation progress multiplier: `POINTS_GRADUATION_PROGRESS_MULTIPLIER = 1`
+- Points per 1.0 native token bought: `POINTS_PER_ETH_BUY = 100`
+- Graduation bonus: `POINTS_GRADUATION_BONUS = 500`
+
+**BSC**
+
+- Create token: `POINTS_CREATE_TOKEN = 5`
+- Points per 1.0 native token bought: `POINTS_PER_ETH_BUY = 30` (BNB)
+- Graduation bonus: `POINTS_GRADUATION_BONUS = 500`
+
+### How buy points are computed
+
+On-chain formula (ETH-like variable name, but it is the chain’s native token in wei):
+
+- buy points (point-wei) = `ethAmountWei * POINTS_PER_ETH_BUY`
 
 ## How points are earned (high level)
 
 - **Create token**: awards points to the creator
-- **Buy activity**: awards points based on ETH amount bought
-- **Graduation / progress**: awards creator points when progress increases
+- **Buy activity**: awards points based on native token amount bought (ETH/BNB)
+- **Graduation**: awards creator points when the token graduates
 - **Sells**: no points (by design)
 
 ## Claiming rewards
 
-The contract includes a reward claiming function `claimRewards(pointsToClaim)` with the intention that **points can be redeemed into BONDX**.
+The contract includes a reward claiming function `claimRewards()` with the intention that **points can be redeemed into BONDX**.
 
 In the current contract design, claiming is enabled once BondXCoin is configured on-chain (`bondXCoinAddress` is set). See `isClaimingEnabled()`.
 
-Because BONDX is an 18-decimal ERC20, teams should ensure the deployed reward minting matches the intended UX (see Tokenomics → Rewards & Redemption).
+Because BONDX is an 18-decimal ERC20 and points are tracked with 18-decimal precision, the intended UX of “1 point = 1 BONDX” is achieved by minting the same 18-decimal amount.
 
-## Volume tiers (thresholds)
+## User tiers (points-based)
 
-Tier thresholds are based on a user’s total trading volume (ETH units on that chain):
+Tier thresholds are currently derived from **user points** (not volume):
 
-* Bronze: 10 ETH
-* Silver: 50 ETH
-* Gold: 100 ETH
-* Platinum: 500 ETH
-* Diamond: 1,000 ETH
-* Legend: 5,000 ETH
-* Mythic: 10,000 ETH
+- Starter: 0–25
+- Bronze: 26–100
+- Silver: 101–400
+- Gold: 401–1,200
+- Platinum: 1,201–5,000
+- Diamond: 5,001–25,000
+- Legend: 25,001–100,000
+- Mythic: 100,001+
 
-Note: many UIs also show a “Starter” tier for users below Bronze.
-
-## Tier bonus points
-
-The contract awards one-time bonus points when a tier threshold is reached:
-
-- Bronze: 20
-- Silver: 120
-- Gold: 300
-- Platinum: 2,000
-- Diamond: 5,500
-- Legend: 36,000
-- Mythic: 100,000
+Note: tier labels are UI/analytics constructs; on-chain the source of truth is `userPoints[user]` (and per-chain leaderboards/ranks are computed against that).
