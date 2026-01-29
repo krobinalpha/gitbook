@@ -2,6 +2,12 @@
 
 This section has three parts: **REST API**, **WebSocket (Socket.IO)**, and **On-chain events**. Use them to read and stream token data, trades, and to subscribe to contract events.
 
+## For trading bots
+
+* **REST API:** Poll token list, token details, calc buy/sell return, transactions, and price history. Use for polling-based strategies; always send `chainId` when the token exists on multiple chains. Pagination uses `page` and `pageSize`.
+* **WebSocket:** Real-time trade and price events. Subscribe once; filter by `tokenAddress` and `chainId` in your client. Use for copy-trading, alerts, or low-latency signals.
+* **On-chain events:** Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, TokenGraduated) via your own RPC/WebSocket provider for lowest latency and full independence from our servers.
+
 ---
 
 ## REST API
@@ -10,20 +16,23 @@ Public HTTP endpoints. Only endpoints that do not require authentication and are
 
 ### Base URL
 
-* **Production:** Same origin as the BondX web app (e.g. `https://bondx.fun`). API paths are under `/api/`.
-* **Development:** Typically `http://localhost:5000` (or your backend port). All requests use the `/api/` prefix.
+* **Production:** `https://bondx.fun` (or the BondX web app origin). All API paths are under `/api/` (e.g. `GET https://bondx.fun/api/tokens`).
+* **Development:** `http://localhost:5000` (or your backend port). Same `/api/` prefix.
 
 ### Conventions
 
-* **Content type:** Requests and responses use JSON (`Content-Type: application/json`).
-* **Paths:** All documented paths are relative to the base URL (e.g. `GET /api/tokens` means `GET {baseUrl}/api/tokens`).
-* **Path parameters** are indicated with `:param` (e.g. `:address`, `:tokenAddress`). Replace them with actual values.
+* **Content type:** Requests and responses are JSON (`Content-Type: application/json`).
+* **Paths:** Documented paths are relative to the base URL (e.g. `GET /api/tokens` means `GET {baseUrl}/api/tokens`).
+* **Path parameters** use `:param` (e.g. `:address`, `:tokenAddress`). Replace with actual values.
 * **Query parameters** are optional unless marked required in the category pages.
+* **Pagination:** List endpoints return `data`, `totalCount`, `currentPage`, `totalPages`, `hasNextPage`, `hasPrevPage`. Use `page` (min 1) and `pageSize` to control results.
+* **Numeric fields:** Amounts in REST responses are human-readable strings unless a category page states otherwise (e.g. wei). Calc endpoints return both wei-style and formatted fields where relevant.
+* **Rate limits:** Anonymous clients: 100 requests per minute (per IP). Authenticated clients: 200 requests per minute (per user). Exceeding limits returns HTTP 429.
 
 ### Scope
 
-* **Included:** GET endpoints that return public data (tokens, holders, histories, transactions, liquidity events, user profile, analytics rankings, platform stats, chat messages). Auth **entry points** used to obtain a session: nonce, verify-wallet, send/verify email code, initiate social login.
-* **Excluded:** All `/api/admin/*` routes; any endpoint that requires a Bearer token (e.g. `/auth/me`, profile update, wallet operations, token creation/buy/sell, upload, claim rewards); OAuth callback URLs (browser redirects); sitemap and other non-data APIs.
+* **Included:** GET endpoints for public data (tokens, holders, histories, transactions, liquidity events, user profile, analytics rankings, platform stats, chat messages). Auth entry points: nonce, verify-wallet, send/verify email code, initiate social login.
+* **Excluded:** All `/api/admin/*` routes; any endpoint that requires a Bearer token (e.g. `/auth/me`, profile update, wallet operations, token creation/buy/sell, upload, claim rewards); OAuth callback URLs; sitemap and other non-data APIs.
 
 ### REST categories
 

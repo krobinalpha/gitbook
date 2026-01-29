@@ -2,6 +2,8 @@
 
 Public endpoints for token listing and token details. No authentication required.
 
+**For trading bots:** Use `GET /api/tokens` to discover tokens and `GET /api/tokens/address/:address` for a single token (price, reserves). Use `calc-buy-return` and `calc-sell-return` to size trades; responses include both wei-style and human-readable amounts.
+
 ***
 
 ## GET /api/tokens
@@ -89,7 +91,7 @@ Calculate token amount received for a given ETH (or native token) amount (bondin
 | `ethAmount` | string          | ETH amount (human-readable, e.g. "0.1") |
 | `chainId`   | integer (min 1) | Chain ID                                |
 
-**Response:** `ethAmount`, `tokenAmount`, `tokenAmountFormatted`, `cached`, optional `needsSync`.
+**Response:** `ethAmount` (requested amount), `tokenAmount` (wei string), `tokenAmountFormatted` (human-readable), `cached`, optional `needsSync`.
 
 ***
 
@@ -110,5 +112,5 @@ Calculate ETH (or native token) amount received for a given token amount (bondin
 | `tokenAmount` | string          | Token amount (human-readable) |
 | `chainId`     | integer (min 1) | Chain ID                      |
 
-**Response:** `tokenAmount`, `ethAmount`, `ethAmountFormatted`, `cached`, optional `needsSync`.
+**Response:** `tokenAmount` (requested amount), `ethAmount` (wei string), `ethAmountFormatted` (human-readable), `cached`, optional `needsSync`.
 

@@ -1,14 +1,16 @@
 # On-chain events
 
-The BondX Pool contract (BondxPool) emits events for buys, sells, token creation, and graduation. You can subscribe to these events via your own RPC or WebSocket provider (e.g. ethers `contract.on(...)` or provider log filters).
+The BondX Pool contract (BondxPool) emits events for buys, sells, token creation, and graduation. You can subscribe via your own RPC or WebSocket provider for lowest latency and full independence from our servers.
+
+## For trading bots
+
+Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, TokenGraduated) using your own node or provider. Events fire when the block is mined; consider waiting for confirmations before treating a trade as final. All amount parameters are **wei** (uint256). The full ABI is in the repo at `backend/src/config/abi/BondxPool.json`; only the four events below are documented here.
 
 ## Contract
 
-- **Contract:** BondX Pool (BondxPool). One deployment per chain; the pool address is deployment-specific (e.g. from env `POOL_ADDRESS_ETHEREUM`, `POOL_ADDRESS_BSC`, etc.).
+- **Contract:** BondX Pool (BondxPool). One deployment per chain.
 - **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base), 84532 (Base Sepolia).
-- **Address per chain:** Obtain the pool contract address for each chain from the BondX app, docs, or API. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
-
-The full ABI is in the backend at `backend/src/config/abi/BondxPool.json`. Only the four events below are documented here.
+- **Address per chain:** Pool address is deployment-specific. Obtain it from the BondX app, docs, or a public API if available. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
 
 ---
 
@@ -78,11 +80,29 @@ Emitted when a token reaches its graduation threshold (bonding curve graduates t
 
 ## Subscription
 
-Subscribe using your own RPC or WebSocket provider. Example with ethers.js:
+Subscribe using your own RPC or WebSocket provider. Example with ethers.js v6:
 
-1. Get the BondX Pool contract address for the desired chain.
-2. Load the BondxPool ABI (or the event fragments for TokenBought, TokenSold, TokenCreated, TokenGraduated).
-3. Create a contract instance with `new ethers.Contract(poolAddress, abi, provider)`.
-4. Use `contract.on('TokenBought', callback)`, `contract.on('TokenSold', callback)`, etc. Callbacks receive the event arguments and optionally the event log (txHash, blockNumber, etc.).
+```javascript
+const { ethers } = require('ethers');
 
-The backend uses a WebSocket provider per chain and subscribes to these same events to update the database and emit Socket.IO events; your subscription is independent and can run from any node or provider that supports `eth_subscribe` (logs) or equivalent.
+const POOL_ADDRESS = '0x...'; // BondX Pool address for the chain
+const RPC_URL = 'https://...';
+const provider = new ethers.JsonRpcProvider(RPC_URL);
+
+const abi = [
+  'event TokenBought(address indexed tokenAddress, address indexed buyer, uint256 ethAmount, uint256 tokenAmount, uint256 newEthReserves, uint256 newTokenReserves, uint256 newVirtualEthReserves, uint256 newVirtualTokenReserves)',
+  'event TokenSold(address indexed tokenAddress, address indexed seller, uint256 tokenAmount, uint256 ethAmount, uint256 newEthReserves, uint256 newTokenReserves, uint256 newVirtualEthReserves, uint256 newVirtualTokenReserves)',
+];
+
+const contract = new ethers.Contract(POOL_ADDRESS, abi, provider);
+
+contract.on('TokenBought', (tokenAddress, buyer, ethAmount, tokenAmount, newEthReserves, newTokenReserves, newVirtualEthReserves, newVirtualTokenReserves, event) => {
+  console.log('TokenBought', tokenAddress, buyer, ethAmount.toString(), tokenAmount.toString(), event.log.transactionHash);
+});
+
+contract.on('TokenSold', (tokenAddress, seller, tokenAmount, ethAmount, newEthReserves, newTokenReserves, newVirtualEthReserves, newVirtualTokenReserves, event) => {
+  console.log('TokenSold', tokenAddress, seller, tokenAmount.toString(), ethAmount.toString(), event.log.transactionHash);
+});
+```
+
+Replace `POOL_ADDRESS` and `RPC_URL` with the BondX Pool address and RPC for your target chain. Callbacks receive event args and an event object (e.g. `event.log.transactionHash`, `event.log.blockNumber`). The backend subscribes to these same events to index and emit Socket.IO; your subscription is independent and can run from any provider that supports `eth_subscribe` (logs).
