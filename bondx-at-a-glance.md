@@ -10,7 +10,6 @@ A launchpad for creating and trading tokens through an on-chain bonding curve, w
 * **Graduation-progress tiered fees**: fee split changes as a token moves toward graduation (no LP fee in the current design).
 * **BondXCoin LP bootstrap**: buyback fee can fund a one-time BondXCoin/native-token liquidity bootstrap and then ongoing buyback+burn (execution depends on DEX conditions).
 * **User incentives**: points and points-based tiers reward consistent participation, not only one-time events.
-* **App-layer security**: embedded wallet withdrawals require an email OTP confirmation (per withdrawal).
 
 ## Multi-chain model
 
@@ -35,8 +34,8 @@ are **independent**.
 
 BondX uses basis points (BPS). Fees are **graduation-progress tiered** and split into:
 
-- creator fee
-- treasury fee
-- buyback fee
+* creator fee
+* treasury fee
+* buyback fee
 
-All current tiers total **1.0%** (100 bps), but the split changes as graduation progress increases.
+All current tiers total **1.0%** (100 bps).

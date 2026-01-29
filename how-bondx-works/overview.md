@@ -6,7 +6,7 @@ BondX is an on-chain system that supports:
 * trading activity (buy/sell)
 * fee collection and accounting (graduation-progress tiered)
 * BondXCoin LP bootstrap mechanics
-* points and tier bonuses
+* points and volume tier&#x20;
 
 At high level:
 

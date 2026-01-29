@@ -13,7 +13,7 @@ Token launchpads compete on trust, liquidity, and distribution.
 
 BondX positions itself as:
 
-* a launchpad with **on-chain measurable transparency** (volume, fees, phase status)
+* a launchpad with **on-chain measurable transparency** (volume, fees)
 * a product with **per-chain independent economics** (no confusing cross-chain mixing)
 * a protocol that can **incentivize early participation** via points and tier rewards
 
@@ -25,5 +25,3 @@ Many platforms either:
 * provide transparency but require complex off-chain trust assumptions.
 
 BondX aims to keep the “core truth” on-chain (where possible) and make off-chain analytics clearly auditable against that truth.
-
-

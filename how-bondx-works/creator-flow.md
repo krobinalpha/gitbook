@@ -25,12 +25,3 @@ As trading occurs:
 
 * the token’s progress toward its graduation target can be tracked
 * creators may earn progress-based points as the token advances
-
-## 4) Post-launch behavior
-
-Post-launch mechanics are always active in the current design, but behavior depends on configuration and thresholds:
-
-* **Fees are graduation-progress tiered** (creator/treasury/buyback; no LP fee).
-* **Buyback mechanics** execute when enough buyback fee accumulates (subject to minimum thresholds and DEX conditions).
-* **BondXCoin LP bootstrap** occurs once buyback accumulation reaches the on-chain threshold (sets `buybackLpAdded = true`).
-* **Rewards claiming** is enabled once BondXCoin is configured (`bondXCoinAddress` is set).

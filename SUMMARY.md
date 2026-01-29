@@ -42,5 +42,4 @@
   * [On-chain Parameters (BondX.sol)](appendix/onchain-parameters.md)
   * [Examples (Fees, Points, Rewards)](appendix/examples.md)
   * [Illustrative Scenarios](appendix/illustrative-scenarios.md)
-  * [Diagrams](appendix/diagrams.md)
   * [Glossary](appendix/glossary.md)
