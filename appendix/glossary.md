@@ -6,7 +6,7 @@ One basis point is 0.01%. 100 bps = 1%.
 
 ## Chain-specific economics
 
-BondX runs independent deployments per chain. Volume, fees, phase state, and rankings are per chain.
+BondX runs independent deployments per chain. Volume, fees, and rankings are per chain.
 
 ## Fee tier (graduation-progress based)
 
