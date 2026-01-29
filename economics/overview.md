@@ -11,9 +11,7 @@ This section explains:
 
 ## User summary
 
-BondX has **no Phase 1 / Phase 2** in the current deployed contract. Instead:
-
-* **Fees are tiered by graduation progress** (creator + treasury + buyback; no LP fee).
+* **Fees are tiered by graduation progress** (creator + treasury + buyback;).
 * **Buyback fee** funds:
   * a one-time **BondXCoin LP bootstrap** on the configured UniswapV2-style router once a threshold is reached, and then
   * ongoing **buyback + burn** operations when enough buyback native token accumulates.
