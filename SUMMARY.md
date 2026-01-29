@@ -29,7 +29,7 @@
 * [🔐 Security](security.md)
 * [⚡ Risk Disclosures](risk-disclosures.md)
 * [📡 API Reference](api-reference/overview.md)
-  * [🌐 REST API](api-reference/overview.md)
+  * [🌐 REST API]()
     * [🪙 Tokens](api-reference/tokens.md)
     * [👥 Holders](api-reference/holders.md)
     * [📈 Histories](api-reference/histories.md)
