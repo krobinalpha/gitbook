@@ -1,3 +1,7 @@
+---
+description: Welcome to BondX Documentation
+---
+
 # 👋 Welcome
 
 BondX is a multi-chain launchpad built to make token creation and early trading simpler, more transparent, and more aligned with long-term incentives.
