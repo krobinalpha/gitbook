@@ -1,6 +1,6 @@
 # 📊 Analytics
 
-Public endpoints for dashboard rankings and platform-wide stats. No authentication required. Endpoints that require a logged-in user (e.g. user stats, claim rewards) are not documented here.
+Public endpoints for dashboard rankings and platform-wide stats. No authentication required.&#x20;
 
 ***
 
