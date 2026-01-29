@@ -1,5 +1,7 @@
 ---
 description: Welcome to BondX Documentation
+cover: .gitbook/assets/ChatGPT Image Jan 29, 2026, 09_42_32 AM.jpg
+coverY: 0
 ---
 
 # 👋 Welcome
