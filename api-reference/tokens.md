@@ -1,4 +1,4 @@
-# Tokens
+# 🪙 Tokens
 
 Public endpoints for token listing and token details. No authentication required.
 
@@ -113,4 +113,3 @@ Calculate ETH (or native token) amount received for a given token amount (bondin
 | `chainId`     | integer (min 1) | Chain ID                      |
 
 **Response:** `tokenAmount` (requested amount), `ethAmount` (wei string), `ethAmountFormatted` (human-readable), `cached`, optional `needsSync`.
-

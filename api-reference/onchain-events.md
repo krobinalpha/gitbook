@@ -1,4 +1,4 @@
-# On-chain events
+# ⛓️ On-chain events
 
 The BondX Pool contract (BondxPool) emits events for buys, sells, token creation, and graduation. You can subscribe via your own RPC or WebSocket provider for lowest latency and full independence from our servers.
 
@@ -8,75 +8,75 @@ Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, Toke
 
 ## Contract
 
-- **Contract:** BondX Pool (BondxPool). One deployment per chain.
-- **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base), 84532 (Base Sepolia).
-- **Address per chain:** Pool address is deployment-specific. Obtain it from the BondX app, docs, or a public API if available. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
+* **Contract:** BondX Pool (BondxPool). One deployment per chain.
+* **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base), 84532 (Base Sepolia).
+* **Address per chain:** Pool address is deployment-specific. Obtain it from the BondX app, docs, or a public API if available. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
 
----
+***
 
 ## TokenBought
 
 Emitted when a user buys tokens (bonding curve buy).
 
-| Parameter | Indexed | Type | Description |
-|-----------|---------|------|-------------|
-| `tokenAddress` | yes | address | Token contract address |
-| `buyer` | yes | address | Buyer wallet address |
-| `ethAmount` | no | uint256 | Native token amount (wei) |
-| `tokenAmount` | no | uint256 | Token amount received (wei) |
-| `newEthReserves` | no | uint256 | Pool ETH reserves after trade |
-| `newTokenReserves` | no | uint256 | Pool token reserves after trade |
-| `newVirtualEthReserves` | no | uint256 | Virtual ETH reserves after trade |
-| `newVirtualTokenReserves` | no | uint256 | Virtual token reserves after trade |
+| Parameter                 | Indexed | Type    | Description                        |
+| ------------------------- | ------- | ------- | ---------------------------------- |
+| `tokenAddress`            | yes     | address | Token contract address             |
+| `buyer`                   | yes     | address | Buyer wallet address               |
+| `ethAmount`               | no      | uint256 | Native token amount (wei)          |
+| `tokenAmount`             | no      | uint256 | Token amount received (wei)        |
+| `newEthReserves`          | no      | uint256 | Pool ETH reserves after trade      |
+| `newTokenReserves`        | no      | uint256 | Pool token reserves after trade    |
+| `newVirtualEthReserves`   | no      | uint256 | Virtual ETH reserves after trade   |
+| `newVirtualTokenReserves` | no      | uint256 | Virtual token reserves after trade |
 
----
+***
 
 ## TokenSold
 
 Emitted when a user sells tokens (bonding curve sell).
 
-| Parameter | Indexed | Type | Description |
-|-----------|---------|------|-------------|
-| `tokenAddress` | yes | address | Token contract address |
-| `seller` | yes | address | Seller wallet address |
-| `tokenAmount` | no | uint256 | Token amount sold (wei) |
-| `ethAmount` | no | uint256 | Native token amount received (wei) |
-| `newEthReserves` | no | uint256 | Pool ETH reserves after trade |
-| `newTokenReserves` | no | uint256 | Pool token reserves after trade |
-| `newVirtualEthReserves` | no | uint256 | Virtual ETH reserves after trade |
-| `newVirtualTokenReserves` | no | uint256 | Virtual token reserves after trade |
+| Parameter                 | Indexed | Type    | Description                        |
+| ------------------------- | ------- | ------- | ---------------------------------- |
+| `tokenAddress`            | yes     | address | Token contract address             |
+| `seller`                  | yes     | address | Seller wallet address              |
+| `tokenAmount`             | no      | uint256 | Token amount sold (wei)            |
+| `ethAmount`               | no      | uint256 | Native token amount received (wei) |
+| `newEthReserves`          | no      | uint256 | Pool ETH reserves after trade      |
+| `newTokenReserves`        | no      | uint256 | Pool token reserves after trade    |
+| `newVirtualEthReserves`   | no      | uint256 | Virtual ETH reserves after trade   |
+| `newVirtualTokenReserves` | no      | uint256 | Virtual token reserves after trade |
 
----
+***
 
 ## TokenCreated
 
 Emitted when a new token is created on the BondX pool.
 
-| Parameter | Indexed | Type | Description |
-|-----------|---------|------|-------------|
-| `tokenAddress` | yes | address | New token contract address |
-| `creator` | yes | address | Creator wallet address |
-| `name` | no | string | Token name |
-| `symbol` | no | string | Token symbol |
-| `description` | no | string | Token description |
-| `uri` | no | string | Metadata URI |
-| `totalSupply` | no | uint256 | Total supply (wei) |
-| `virtualEthReserves` | no | uint256 | Initial virtual ETH reserves |
-| `virtualTokenReserves` | no | uint256 | Initial virtual token reserves |
-| `graduationEth` | no | uint256 | Graduation threshold in native token (wei) |
+| Parameter              | Indexed | Type    | Description                                |
+| ---------------------- | ------- | ------- | ------------------------------------------ |
+| `tokenAddress`         | yes     | address | New token contract address                 |
+| `creator`              | yes     | address | Creator wallet address                     |
+| `name`                 | no      | string  | Token name                                 |
+| `symbol`               | no      | string  | Token symbol                               |
+| `description`          | no      | string  | Token description                          |
+| `uri`                  | no      | string  | Metadata URI                               |
+| `totalSupply`          | no      | uint256 | Total supply (wei)                         |
+| `virtualEthReserves`   | no      | uint256 | Initial virtual ETH reserves               |
+| `virtualTokenReserves` | no      | uint256 | Initial virtual token reserves             |
+| `graduationEth`        | no      | uint256 | Graduation threshold in native token (wei) |
 
----
+***
 
 ## TokenGraduated
 
 Emitted when a token reaches its graduation threshold (bonding curve graduates to LP).
 
-| Parameter | Indexed | Type | Description |
-|-----------|---------|------|-------------|
-| `tokenAddress` | yes | address | Token contract address |
-| `graduationPrice` | no | uint256 | Price at graduation (wei) |
+| Parameter         | Indexed | Type    | Description               |
+| ----------------- | ------- | ------- | ------------------------- |
+| `tokenAddress`    | yes     | address | Token contract address    |
+| `graduationPrice` | no      | uint256 | Price at graduation (wei) |
 
----
+***
 
 ## Subscription
 

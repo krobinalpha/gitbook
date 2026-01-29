@@ -1,4 +1,4 @@
-# API Reference
+# 📡 API Reference
 
 This section has three parts: **REST API**, **WebSocket (Socket.IO)**, and **On-chain events**. Use them to read and stream token data, trades, and to subscribe to contract events.
 
@@ -8,7 +8,7 @@ This section has three parts: **REST API**, **WebSocket (Socket.IO)**, and **On-
 * **WebSocket:** Real-time trade and price events. Subscribe once; filter by `tokenAddress` and `chainId` in your client. Use for copy-trading, alerts, or low-latency signals.
 * **On-chain events:** Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, TokenGraduated) via your own RPC/WebSocket provider for lowest latency and full independence from our servers.
 
----
+***
 
 ## REST API
 
@@ -36,30 +36,30 @@ Public HTTP endpoints. Only endpoints that do not require authentication and are
 
 ### REST categories
 
-| Category | Description |
-|----------|-------------|
-| [Tokens](tokens.md) | List tokens, get token by address, tokens by creator, calc buy/sell return, user balance for a token |
-| [Holders](holders.md) | Token holders for a token; tokens held by an address; batch holder lookup |
-| [Histories](histories.md) | Price history for a token |
-| [Transactions](transactions.md) | Transactions for a token or for an address |
-| [Liquidity](liquidity.md) | Liquidity events for a token |
-| [Users](users.md) | Public user profile by wallet address |
-| [Auth](auth.md) | Nonce, verify wallet (SIWE), send/verify email code, initiate social login |
-| [Analytics](analytics.md) | Dashboard rankings (traders, points), platform stats |
-| [Chat](chat.md) | List chat messages for a token |
+| Category                        | Description                                                                                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [Tokens](tokens.md)             | List tokens, get token by address, tokens by creator, calc buy/sell return, user balance for a token |
+| [Holders](holders.md)           | Token holders for a token; tokens held by an address; batch holder lookup                            |
+| [Histories](histories.md)       | Price history for a token                                                                            |
+| [Transactions](transactions.md) | Transactions for a token or for an address                                                           |
+| [Liquidity](liquidity.md)       | Liquidity events for a token                                                                         |
+| [Users](users.md)               | Public user profile by wallet address                                                                |
+| [Auth](auth.md)                 | Nonce, verify wallet (SIWE), send/verify email code, initiate social login                           |
+| [Analytics](analytics.md)       | Dashboard rankings (traders, points), platform stats                                                 |
+| [Chat](chat.md)                 | List chat messages for a token                                                                       |
 
----
+***
 
 ## WebSocket (Socket.IO)
 
 Real-time events over Socket.IO. Only **unauthenticated** events are documented: price updates, trades, token created/traded, and chat (after joining a token room). Events that require an authenticated user room (deposit/withdraw/balance) are not documented.
 
-See **[WebSocket](websocket.md)** for connection URL, client/server events, and payloads.
+See [**WebSocket**](websocket.md) for connection URL, client/server events, and payloads.
 
----
+***
 
 ## On-chain events
 
 BondX Pool contract emits **TokenBought**, **TokenSold**, **TokenCreated**, and **TokenGraduated**. You can subscribe via your own RPC or WebSocket provider (e.g. ethers `contract.on(...)`).
 
-See **[On-chain events](onchain-events.md)** for contract address per chain, event names, and parameters.
+See [**On-chain events**](onchain-events.md) for contract address per chain, event names, and parameters.
