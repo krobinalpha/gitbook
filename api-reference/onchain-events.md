@@ -4,13 +4,12 @@ The BondX Pool contract (BondxPool) emits events for buys, sells, token creation
 
 ## For trading bots
 
-Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, TokenGraduated) using your own node or provider. Events fire when the block is mined; consider waiting for confirmations before treating a trade as final. All amount parameters are **wei** (uint256). The full ABI is in the repo at `backend/src/config/abi/BondxPool.json`; only the four events below are documented here.
+Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, TokenGraduated) using your own node or provider. Events fire when the block is mined; consider waiting for confirmations before treating a trade as final. All amount parameters are **wei** (uint256).&#x20;
 
 ## Contract
 
 * **Contract:** BondX Pool (BondxPool). One deployment per chain.
 * **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base).
-* **Address per chain:** Pool address is deployment-specific. Obtain it from the BondX app, docs, or a public API if available. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
 
 ***
 
