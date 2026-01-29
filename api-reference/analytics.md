@@ -4,21 +4,6 @@ Public endpoints for dashboard rankings and platform-wide stats. No authenticati
 
 ***
 
-## GET /api/analytics/dashboard/rankings/traders
-
-Get top traders ranked by total trading volume (native token or USD) on a chain.
-
-**Query parameters (all optional):**
-
-| Parameter | Type            | Description                                                     |
-| --------- | --------------- | --------------------------------------------------------------- |
-| `limit`   | integer (1–100) | Number of results (default: 20)                                 |
-| `chainId` | integer         | Chain ID; if omitted or invalid, first configured chain is used |
-
-**Response:** `success`, `rankings` (array of objects with e.g. `rank`, `username`, `address`, `avatar`, `totalVolumeUSD`, `totalVolume`).
-
-***
-
 ## GET /api/analytics/dashboard/rankings/points
 
 Get top users ranked by points on a chain.
