@@ -5,7 +5,7 @@ This roadmap is presented as an outcome-focused sequence. Timelines can be added
 ## Phase A — Product hardening (near-term)
 
 * Finalize per-chain deployments (Ethereum, Arbitrum, Base)
-* Improve dashboards and transparency UI (fees, phase status, tier distribution, rankings)
+* Improve dashboards and transparency UI (fees, tier distribution, rankings)
 * Harden indexing and tracking reliability for multi-instance backends
 * External security review / audit preparation
 
@@ -25,5 +25,3 @@ This roadmap is presented as an outcome-focused sequence. Timelines can be added
 
 * Move admin controls to multisig + timelock
 * Publish a governance roadmap and operational policies
-
-
