@@ -12,7 +12,7 @@ This section has three parts: **REST API**, **WebSocket (Socket.IO)**, and **On-
 
 ## REST API
 
-Public HTTP endpoints. Only endpoints that do not require authentication and are not admin-only are listed.
+Public HTTP endpoints. Only endpoints that do not require authentication.
 
 ### Base URL
 
