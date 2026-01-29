@@ -9,7 +9,7 @@ Subscribe to the BondX Pool contract (TokenBought, TokenSold, TokenCreated, Toke
 ## Contract
 
 * **Contract:** BondX Pool (BondxPool). One deployment per chain.
-* **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base), 84532 (Base Sepolia).
+* **Supported chain IDs:** 1 (Ethereum), 56 (BSC), 42161 (Arbitrum), 8453 (Base).
 * **Address per chain:** Pool address is deployment-specific. Obtain it from the BondX app, docs, or a public API if available. The backend uses `POOL_ADDRESS_*` environment variables; the same addresses are used for indexing and WebSocket emissions.
 
 ***
