@@ -1,8 +1,8 @@
 ---
 description: Welcome to BondX Documentation
 cover: .gitbook/assets/Bond X (1).png
-coverY: 20.786516853932582
-coverHeight: 408
+coverY: -1.6853932584269664
+coverHeight: 365
 layout:
   width: default
   cover:
