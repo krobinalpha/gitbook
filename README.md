@@ -1,7 +1,24 @@
 ---
 description: Welcome to BondX Documentation
-cover: .gitbook/assets/ChatGPT Image Jan 29, 2026, 09_42_32 AM.jpg
-coverY: 0
+cover: .gitbook/assets/Black & white company modern profile twitter header.png
+coverY: 11.184210526315798
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
 ---
 
 # 👋 Welcome
