@@ -1,12 +1,12 @@
 ---
 description: Welcome to BondX Documentation
-cover: .gitbook/assets/Black & white company modern profile twitter header.png
-coverY: 13.157894736842113
+cover: .gitbook/assets/Bond X (1).png
+coverY: -44.9438202247191
 layout:
   width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
