@@ -8,14 +8,13 @@
 
 ## Key trust assumptions
 
-- **Admin key risk**: owner permissions exist and must be secured (multisig recommended).
-- **DEX assumptions**: buyback and LP bootstrap rely on UniswapV2-style swaps/liquidity adds (e.g., Uniswap/PancakeSwap routers), subject to slippage and market conditions.
-- **RPC/indexer assumptions**: UIs and dashboards may rely on RPC providers and/or indexing services for speed, even if the source of truth is on-chain.
+* **Admin key risk**: owner permissions exist and must be secured (multisig recommended).
+* **DEX assumptions**: buyback and LP bootstrap rely on UniswapV2-style swaps/liquidity adds (e.g., Uniswap/PancakeSwap routers), subject to slippage and market conditions.
+* **RPC/indexer assumptions**: UIs and dashboards may rely on RPC providers and/or indexing services for speed, even if the source of truth is on-chain.
 
 ## Application-layer security (off-chain)
 
-- **Email OTP for embedded wallet withdrawals**: withdrawals from embedded wallets require a verification code sent to the user’s email (per withdrawal).
-- **JWT auth**: API access is gated by JWT; sensitive endpoints should require auth + rate limits.
+* **JWT auth**: API access is gated by JWT; sensitive endpoints should require auth + rate limits.
 
 ## Operational best practices
 
