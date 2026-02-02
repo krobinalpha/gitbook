@@ -41,7 +41,7 @@ socket.on('connect_error', (err) => console.error('Connection error', err));
 
 ## Server to Client events (no auth required)
 
-All events below are emitted to all connected clients (or to the token chat room for chat events). No Bearer token or user room required.
+All events below are emitted to all connected clients.
 
 **Numeric types:** In `tokenBought`, `tokenSold`, and `tokenTraded`, `ethAmount`, `tokenAmount`, and `value` are **wei strings** (18 decimals). Convert with your library's `formatUnits` (or equivalent). `tokenPrice` and `price` in `priceUpdate` are human-readable strings.
 
