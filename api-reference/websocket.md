@@ -4,7 +4,7 @@ Real-time events over Socket.IO. Only events that **do not require authenticatio
 
 ## For trading bots
 
-Listen to `tokenBought`, `tokenSold`, and optionally `priceUpdate`, `tokenCreated`, `tokenTraded`. Events are **broadcast for all tokens**; filter by `tokenAddress` and `chainId` in your client. Chat events (`chatMessage`, `chatMessageEdited`, `chatMessageDeleted`) are for the app; most bots ignore them. Use a **Socket.IO client** (not raw WebSocket). Socket.IO handles reconnection; keep it enabled.
+Listen to `tokenBought`, `tokenSold`, and optionally `priceUpdate`, `tokenCreated`, `tokenTraded`. Events are **broadcast for all tokens**; filter by `tokenAddress` and `chainId` in your client. Use a **Socket.IO client** (not raw WebSocket). Socket.IO handles reconnection; keep it enabled.
 
 ## Connection
 
